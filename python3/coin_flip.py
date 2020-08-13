@@ -4,6 +4,22 @@
 [1,1,0,0,1] -> return 2
 """
 
+def solution2(S):
+    ans1, ans2 = 0, 0
+    check1, check2 = 0, 1
+
+    for i in S:
+        if i != check1:
+            ans1 +=1
+        if i != check2:
+            ans2 += 1
+        check1 = 0 if check1 == 1 else 1
+        check2 = 0 if check2 == 1 else 1
+        assert(check1 != check2)
+
+    print("ans1 : {}, ans2 : {}".format(ans1, ans2))
+    return min(ans1, ans2)
+
 def solution(S):
     ans1, ans2 = 0, 0
     S1 = S.copy()
@@ -72,9 +88,19 @@ def solution(S):
             
     return min(ans1, ans2)
 
-print(solution([0,1,0,1,0,0,0,0,0,1]))
-print(solution([1,0,0,0,0,1,0]))
-print(solution([1,0,0]))
-print(solution([0,0,1]))
-print(solution([1,0,1]))
-print(solution([0,1,0]))
+
+# print(solution([0,1,0,1,0,0,0,0,0,1]))
+# print(solution([1,0,0,0,0,1,0]))
+# print(solution([1,0,0]))
+# print(solution([0,0,1]))
+# print(solution([1,0,1]))
+# print(solution([0,1,0]))
+
+# print(solution2([0,1,0,1,0,0,0,0,0,1]))
+print(solution([0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]))
+print(solution2([0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]))
+
+# print(solution2([1,0,0]))
+# print(solution2([0,0,1]))
+# print(solution2([1,0,1]))
+# print(solution2([0,1,0]))

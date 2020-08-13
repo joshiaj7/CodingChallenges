@@ -1,3 +1,6 @@
 # CodingChallenges
-All of my past coding challenge solutions  
-This project is ongoing
+This directory contains my past coding solutions mainly written in Python3 and Golang  
+
+## **This project is still ongoing and will keep going**
+
+

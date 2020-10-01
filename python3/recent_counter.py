@@ -10,16 +10,10 @@ class RecentCounter:
         self.history = []
 
     def ping(self, t: int) -> int:
-        s = t - 3000
-        calls = 0
-
         self.history.append(t)
-        n = len(self.history)
+        s = t - 3000
 
-        for i in range(n-1, -1, -1):
-            if s <= self.history[i]:
-                calls += 1
-            else:
-                break
+        while self.history[0] < s:
+            self.history.pop(0)
 
-        return calls
+        return len(self.history)

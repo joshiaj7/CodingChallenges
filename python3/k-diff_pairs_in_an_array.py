@@ -1,22 +1,29 @@
 """
 space   : O(n)
-time    : O(n log n)
+time    : O(n)
 """
 
 
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
-        ans = 0
-        temp = []
-        nums = sorted(nums)
+        if k < 0:
+            return 0
 
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                if nums[j] - nums[i] == k:
-                    if (nums[i], nums[j]) not in temp:
-                        temp.append((nums[i], nums[j]))
-                        ans += 1
-                elif nums[j] - nums[i] > k:
-                    break
+        ans = 0
+        hashmap = {}
+
+        for i in nums:
+            if i not in hashmap:
+                hashmap[i] = 1
+            else:
+                hashmap[i] += 1
+
+        for key in hashmap.keys():
+            if k != 0:
+                if key + k in hashmap:
+                    ans += 1
+            else:
+                if hashmap[key] > 1:
+                    ans += 1
 
         return ans

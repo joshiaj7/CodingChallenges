@@ -3,7 +3,7 @@ package golang
 // Space   : O(n)
 // Time    : O(n)
 
-func rob(nums []int) int {
+func rob1(nums []int) int {
     ans := 0
     leng := len(nums)
     dp := make([]int, leng)

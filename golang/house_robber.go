@@ -1,3 +1,8 @@
+package golang
+
+// Space   : O(n)
+// Time    : O(n)
+
 func rob(nums []int) int {
     ans := 0
     leng := len(nums)

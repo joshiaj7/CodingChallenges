@@ -1,6 +1,7 @@
 package golang
 
-// leetcode
+// Space   : O(n)
+// Time    : O(n)
 
 import (
     "fmt"

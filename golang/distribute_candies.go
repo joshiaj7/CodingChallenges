@@ -1,9 +1,10 @@
-import "fmt"
+package golang
 
-// leetcode
+// Space   : O(n)
+// Time    : O(n)
 
-func distributeCandies(candies int, num_people int) []int {
-    ans := make([]int, num_people) 
+func distributeCandies(candies int, numPeople int) []int {
+    ans := make([]int, numPeople) 
     counter := 1
     idx := 0
     

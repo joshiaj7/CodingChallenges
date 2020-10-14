@@ -1,10 +1,7 @@
 package golang
 
-// leetcode
-
-import (
-    "fmt"
-)
+// Space   : O(n)
+// Time    : O(n)
 
 func longestPalindrome(s string) int {
     ans := 0
@@ -19,8 +16,6 @@ func longestPalindrome(s string) int {
         }
     }
     
-    fmt.Printf("hashmap : %v\n", hashmap)
-    
     for _, v := range hashmap {
         if v % 2 == 0 {
             ans += v
@@ -29,12 +24,10 @@ func longestPalindrome(s string) int {
             ans += v-1
         } 
     }
-    fmt.Println(ans)
-    fmt.Println(hasOdd)
     
     if hasOdd {
         return ans + 1
-    } else {
-        return ans
-    }
+    } 
+
+    return ans
 }

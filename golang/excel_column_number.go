@@ -1,6 +1,7 @@
 package golang
 
-// leetcode
+// Space   : O(1)
+// Time    : O(n)
 
 func titleToNumber(s string) int {
     res := 0

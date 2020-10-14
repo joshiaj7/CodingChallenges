@@ -1,5 +1,9 @@
+package golang
+
+// Space   : O(1)
+// Time    : O(1)
+
 import (
-    "fmt"
     "strings"
 )
 

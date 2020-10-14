@@ -1,10 +1,10 @@
 package golang
 
-// leetcode
+// Space   : O(1)
+// Time    : O(n)
 
 import (
     "strings"
-    "fmt"
 )
 
 func isPalindrome(s string) bool {
@@ -17,11 +17,9 @@ func isPalindrome(s string) bool {
         }
     }
     
-    fmt.Println(clean)
     leng := len(clean)
 
     for i := 0; i < leng; i++ {
-        // fmt.Println(clean[i], clean[leng-1-i])
         if clean[i] != clean[leng-1-i] {
             palin = false
             break

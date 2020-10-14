@@ -1,23 +1,26 @@
+package golang
+
+// Space   : O(n)
+// Time    : O(n)
+
 import (
     "fmt"
     "strings"
 )
 
-// leetcode
-
 func toGoatLatin(S string) string {
-    var ans, first_letter, ma string
+    var ans, first, ma string
     words := strings.Split(S, " ")
     
     for idx, val := range words {
         ma = "ma"
-        first_letter = strings.ToLower(string(val[0]))
+        first = strings.ToLower(string(val[0]))
         
         // build ma
         ma = ma + strings.Repeat("a", idx + 1)
         
         // flip string
-        if (first_letter != "a") && (first_letter != "e") && (first_letter != "i") && (first_letter != "o") && (first_letter != "u") {
+        if (first != "a") && (first != "e") && (first != "i") && (first != "o") && (first != "u") {
             if len(val) > 1 {
                 val = val[1:] + string(val[0])
             }

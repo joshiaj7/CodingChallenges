@@ -1,3 +1,8 @@
+package golang
+
+// Space   : O(1)
+// Time    : O(n)
+
 func maxProfit(prices []int) int {
     start := 10000000
     dp := 0

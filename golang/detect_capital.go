@@ -1,6 +1,7 @@
 package golang
 
-// leetcode
+// Space   : O(1)
+// Time    : O(n)
 
 func detectCapitalUse(word string) bool {
     isCorrect := true

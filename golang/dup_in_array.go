@@ -1,6 +1,7 @@
 package golang
 
-// leetcode
+// Space   : O(n)
+// Time    : O(n)
 
 func findDuplicates(nums []int) []int {
     hashmap := make(map[int]int)

@@ -1,12 +1,11 @@
 package golang
 
-// leetcode
-// import "fmt"
+// Space   : O(1)
+// Time    : O(n)
 
 func checkValidString(s string) bool {
     firstCheck := 0
     for _, val := range s {
-        // fmt.Println(string(val))
         if string(val) == "(" || string(val) == "*"{
             firstCheck++
         } else {
@@ -19,7 +18,6 @@ func checkValidString(s string) bool {
     
     secondCheck := 0
     for idx := len(s)-1; idx >= 0; idx-- {
-        // fmt.Println(string(s[idx]))
         if string(s[idx]) == ")" || string(s[idx]) == "*"{
             secondCheck++
         } else {

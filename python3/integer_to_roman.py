@@ -26,7 +26,6 @@ class Solution:
         n = len(str(num))
         multi = 10 ** (n-1)
 
-        order = [9, 5, 4, 1]
         for i in range(n):
             temp = int(str(num)[i])
 

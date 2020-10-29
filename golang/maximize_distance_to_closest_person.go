@@ -1,5 +1,9 @@
 package golang
 
+// Space : O(1)
+// Time	: O(n)
+
+
 func max(a int, b int) int {
     if a > b {
         return a

@@ -13,6 +13,10 @@ class Solution:
         return total
 
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
+        """
+        Space   : O(n)
+        Time    : O(n log n)
+        """
         s, e = 1, max(nums)
         mem = {}
 
@@ -47,6 +51,10 @@ class Solution:
 
     # best solution
     def smallestDivisor2(self, nums: List[int], threshold: int) -> int:
+        """
+        Space   : O(1)
+        Time    : O(n log n)
+        """
         l, r = 1, max(nums)
         while l < r:
             m = (l + r) // 2

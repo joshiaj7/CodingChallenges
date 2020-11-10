@@ -1,23 +1,17 @@
 """
-Space   : O(n)
+Space   : O(1)
 Time    : O(n)
 """
 
 
 class Solution:
     def flipAndInvertImage(self, A: List[List[int]]) -> List[List[int]]:
-        for y in range(len(A)):
-            for x in range(len(A[0])):
-                if A[y][x] == 0:
-                    A[y][x] = 1
-                else:
-                    A[y][x] = 0
+        for row in A:
+            for i in range((len(row) + 1) // 2):
+                """
+                In Python, the shortcut row[~i] = row[-i-1] = row[len(row) - 1 - i]
+                helps us find the i-th value of the row, counting from the right.
+                """
+                row[i], row[~i] = row[~i] ^ 1, row[i] ^ 1
 
-        B = []
-        for i in range(len(A)):
-            temp = []
-            for j in range(len(A[0])-1, -1, -1):
-                temp.append(A[i][j])
-            B.append(temp)
-
-        return B
+        return A

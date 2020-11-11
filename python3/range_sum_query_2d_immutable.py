@@ -1,6 +1,6 @@
 """
 Space   : O(1)
-Time    : O(n^2)
+Time    : O(n**2)
 """
 
 

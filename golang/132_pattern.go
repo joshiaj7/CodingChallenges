@@ -1,7 +1,7 @@
 package golang
 
 // Space : O(n)
-// Time	: O(n^2)
+// Time	: O(n**2)
 
 func min(a int, b int) int {
     if a < b {

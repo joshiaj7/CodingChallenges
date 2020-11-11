@@ -1,7 +1,7 @@
 package golang
 
 // Space   : O(1)
-// Time    : O(n^2)
+// Time    : O(n**2)
 
 func findMaximumXOR(nums []int) int {
     ans := 0

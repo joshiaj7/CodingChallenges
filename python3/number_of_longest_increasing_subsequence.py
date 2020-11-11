@@ -1,6 +1,6 @@
 """
 Space   : O(N)
-Time    : O(N^2)
+Time    : O(N**2)
 """
 
 # DP approach

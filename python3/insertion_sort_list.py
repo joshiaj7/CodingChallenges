@@ -1,6 +1,6 @@
 """
 Space   : O(n)
-Time    : O(n^2)
+Time    : O(n**2)
 """
 
 # Definition for singly-linked list.

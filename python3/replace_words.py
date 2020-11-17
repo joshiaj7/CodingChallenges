@@ -24,7 +24,7 @@ class Trie:
 class Solution:
     def replaceWords(self, dictionary: List[str], sentence: str) -> str:
         """
-        My Solution
+        Personal Attempt
         Space   : O(n)
         Time    : O(n)
         """

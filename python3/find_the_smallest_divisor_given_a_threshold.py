@@ -14,6 +14,7 @@ class Solution:
 
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
         """
+        Personal Attempt
         Space   : O(n)
         Time    : O(n log n)
         """
@@ -49,9 +50,9 @@ class Solution:
 
         return 1
 
-    # best solution
-    def smallestDivisor2(self, nums: List[int], threshold: int) -> int:
+    def smallestDivisorBest(self, nums: List[int], threshold: int) -> int:
         """
+        Best Solution
         Space   : O(1)
         Time    : O(n log n)
         """

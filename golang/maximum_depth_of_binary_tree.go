@@ -1,18 +1,15 @@
 package golang
 
+import (
+	"golang/model"
+)
+
 /*
 	Space	: O(1)
 	Time	: O(n)
 */
 
-// TreeNode is a leetcode-format binary tree
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
-func getMaxDepth(root *TreeNode) int {
+func getMaxDepth(root *model.TreeNode) int {
 	if root == nil {
 		return 0
 	}
@@ -23,7 +20,7 @@ func getMaxDepth(root *TreeNode) int {
 	return max(r, l)
 }
 
-func maxDepth(root *TreeNode) int {
+func maxDepth(root *model.TreeNode) int {
 	if root == nil {
 		return 0
 	}

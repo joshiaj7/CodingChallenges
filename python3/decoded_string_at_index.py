@@ -1,3 +1,9 @@
+"""
+Space   : O(1)
+Time    : O(n)
+"""
+
+
 class Solution:
     def decodeAtIndex(self, S: str, K: int) -> str:
         size = 0

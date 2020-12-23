@@ -31,7 +31,7 @@ func checkBalanced(root *model.TreeNode, res bool) (int, bool) {
         }  
         return l + 1, res
 	} 
-	
+
 	if r - l > 1 {
 		res = false
 	}  

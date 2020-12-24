@@ -14,3 +14,9 @@ type Node struct {
 	Right *Node
 	Next  *Node
 }
+
+// ListNode is a leetcode-format linked list
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}

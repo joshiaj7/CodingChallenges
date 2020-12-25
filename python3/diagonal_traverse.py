@@ -1,8 +1,10 @@
-# Space : O(n)
-# Time  : O(n)
-
 class Solution:
     def findDiagonalOrder(self, matrix: List[List[int]]) -> List[int]:
+        """
+        with direction check
+        Space : O(m * n)
+        Time  : O(m * n)
+        """
         if not matrix:
             return []
 
@@ -42,6 +44,12 @@ class Solution:
         return ans
 
     def findDiagonalOrderNoDir(self, matrix: List[List[int]]) -> List[int]:
+        """
+        No direction check
+        Space : O(m * n)
+        Time  : O(m * n)
+        """
+
         if not matrix:
             return matrix
 

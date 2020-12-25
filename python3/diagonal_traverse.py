@@ -40,3 +40,25 @@ class Solution:
                     x -= 1
 
         return ans
+
+    def findDiagonalOrderNoDir(self, matrix: List[List[int]]) -> List[int]:
+        if not matrix:
+            return matrix
+
+        ans = []
+        d = {}
+
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if (i+j) not in d:
+                    d[i+j] = [matrix[i][j]]
+                else:
+                    d[i+j].append(matrix[i][j])
+
+        for k in range(len(d)):
+            if k % 2 == 0:
+                ans += d[k][::-1]
+            else:
+                ans += d[k]
+
+        return ans

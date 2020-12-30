@@ -1,3 +1,9 @@
+"""
+Space   : O(mn)
+Time    : O(mn)
+"""
+
+
 class Solution:
     def getNeighbor(self, board: List[List[int]], x: int, y: int) -> int:
         neighbor = 0

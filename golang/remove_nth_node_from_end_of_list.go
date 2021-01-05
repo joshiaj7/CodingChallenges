@@ -4,18 +4,11 @@ import (
 	"golang/model"
 )
 
-"""
+/**
 Space	: O(n)
 Time	: O(n)
-"""
+*/
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
 func removeNthFromEnd(head *model.ListNode, n int) *model.ListNode {
 	var mem []int
 	phead := head

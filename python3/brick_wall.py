@@ -1,3 +1,9 @@
+"""
+Space   : O(n)
+Time    : O(wall layer * bricks)
+"""
+
+
 class Solution:
     def leastBricks(self, wall: List[List[int]]) -> int:
         if not wall:

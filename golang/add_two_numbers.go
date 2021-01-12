@@ -1,5 +1,8 @@
 package golang
 
+// Space    : O(1)
+// Time     : O(n)
+
 import "golang/model"
 
  func addTwoNumbers(l1 *model.ListNode, l2 *model.ListNode) *model.ListNode {

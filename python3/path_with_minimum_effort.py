@@ -1,3 +1,5 @@
+import heapq
+
 """
 Djikstra algorithm to find shortest path
 Space   : O(mn)
@@ -13,7 +15,7 @@ class Solution:
         visited = [[False] * n for _ in range(m)]
         h = [(0, 0, 0)]
         while h:
-            effort, i, j = heappop(h)
+            effort, i, j = heapq.heappop(h)
             if visited[i][j]:
                 continue
             visited[i][j] = True
@@ -23,5 +25,5 @@ class Solution:
                 ii, jj = i + di[k], j + dj[k]
                 if 0 <= ii < m and 0 <= jj < n and not visited[ii][jj]:
                     neffort = max(effort, abs(heights[i][j] - heights[ii][jj]))
-                    heappush(h, (neffort, ii, jj))
+                    heapq.heappush(h, (neffort, ii, jj))
         return  # cell (m-1, n-1) not reachable, should never happen

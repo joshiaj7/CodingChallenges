@@ -12,7 +12,7 @@ func maxDistToClosest(seats []int) int {
 		// forward
 		if v == 0 {
 			forward++
-			dist = max(dist, forward)
+			dist = Max(dist, forward)
 		} else {
 			forward = 0
 		}
@@ -32,8 +32,8 @@ func maxDistToClosest(seats []int) int {
 		mid = (dist + 1) / 2
 	}
 
-	ans = max(ans, mid)
-	ans = max(ans, forward)
-	ans = max(ans, backward)
+	ans = Max(ans, mid)
+	ans = Max(ans, forward)
+	ans = Max(ans, backward)
 	return ans
 }

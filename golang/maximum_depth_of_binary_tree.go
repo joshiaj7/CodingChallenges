@@ -17,7 +17,7 @@ func getMaxDepth(root *model.TreeNode) int {
 	l := getMaxDepth(root.Left) + 1
 	r := getMaxDepth(root.Right) + 1
 
-	return max(r, l)
+	return Max(r, l)
 }
 
 func maxDepth(root *model.TreeNode) int {

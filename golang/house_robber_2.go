@@ -23,14 +23,14 @@ func rob2(nums []int) int {
 			dp1[i] = nums[i] + dp1[i-2]
 			dp2[i] = nums[i+1] + dp2[i-2]
 		} else {
-			dp1[i] = max(nums[i]+dp1[i-2], nums[i]+dp1[i-3])
-			dp2[i] = max(nums[i+1]+dp2[i-2], nums[i+1]+dp2[i-3])
+			dp1[i] = Max(nums[i]+dp1[i-2], nums[i]+dp1[i-3])
+			dp2[i] = Max(nums[i+1]+dp2[i-2], nums[i+1]+dp2[i-3])
 		}
-		res1 = max(dp1[i], res1)
-		res2 = max(dp2[i], res2)
+		res1 = Max(dp1[i], res1)
+		res2 = Max(dp2[i], res2)
 
 	}
 
-	return max(res1, res2)
+	return Max(res1, res2)
 
 }

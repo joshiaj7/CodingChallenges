@@ -3,13 +3,6 @@ package golang
 // Space : O(n)
 // Time	: O(n**2)
 
-func min(a int, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 func find132pattern(nums []int) bool {
 	n := len(nums)
 
@@ -30,7 +23,7 @@ func find132pattern(nums []int) bool {
 					n2 = nums[j]
 					continue
 				} else if nums[j] < n2 {
-					n2 = min(n2, nums[j])
+					n2 = Min(n2, nums[j])
 				} else if nums[j] > n2 {
 					return true
 				}

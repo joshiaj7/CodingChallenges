@@ -12,8 +12,8 @@ type MyHashSet struct {
 	hashmap map[int]int
 }
 
-// Constructor object constructor
-func Constructor() MyHashSet {
+// MyHashSetConstructor object constructor
+func MyHashSetConstructor() MyHashSet {
 	return MyHashSet{hashmap: make(map[int]int)}
 }
 

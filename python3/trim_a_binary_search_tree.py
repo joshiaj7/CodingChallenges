@@ -1,3 +1,6 @@
+from model import TreeNode
+
+
 class Solution:
     def getPreorder(self, root: TreeNode, low: int, high: int) -> List[int]:
         res = []

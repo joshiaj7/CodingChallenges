@@ -1,12 +1,23 @@
-# leetcode
+"""
+Space   : O(n)
+Time    : O(n)
+"""
 
 class Solution:
     def checkIfExist(self, arr: List[int]) -> bool:
-        double = False
+        d = {}
         
-        for i in range(len(arr)):
-            if arr[i]*2 in arr[i+1:] or arr[i]*2 in arr[:i]:
-                double = True
-                break
+        for x in arr:
+            if x not in d:
+                d[x] = 1
+            else:
+                d[x] += 1
                 
-        return double
+        for k in d.keys():
+            if k == 0:
+                if d[0] > 1:
+                    return True
+            elif k * 2 in d:
+                return True
+            
+        return False

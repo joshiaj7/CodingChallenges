@@ -29,7 +29,6 @@ class Solution:
         ans = 0 
         len_y = len(grid)
         len_x = len(grid[0])
-        # print(len_y, len_x)
         
         for y in range(len_y):
             for x in range(len_x):
@@ -57,7 +56,6 @@ class Solution:
                     else:
                         ans += self.checkBot(x, y, grid)
                         ans += self.checkTop(x, y, grid)
-        
-        # print("ans : {}".format(ans))
+
         return ans
         

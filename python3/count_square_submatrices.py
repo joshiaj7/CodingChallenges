@@ -1,5 +1,7 @@
-# leetcode
-
+"""
+Space   : O(n**2)
+Time    : O(n**2)
+"""
 class Solution:
     def countSquares(self, matrix: List[List[int]]) -> int:
         row = len(matrix)
@@ -11,14 +13,8 @@ class Solution:
                 if y > 0 and x > 0:
                     if (matrix[y][x-1] > 0) and (matrix[y-1][x-1] > 0) and (matrix[y-1][x] > 0) and (matrix[y][x] > 0):
                         matrix[y][x] = min(matrix[y][x-1], matrix[y-1][x-1], matrix[y-1][x]) + 1
-                        # matrix[y][x] += 1
                 ans += matrix[y][x]
                     
-                
-        for i in matrix:
-            print(i)
-        # print(min(1,2,3))      
-        print(ans)
         return ans
                         
         

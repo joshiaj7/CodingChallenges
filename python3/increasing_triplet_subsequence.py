@@ -1,5 +1,7 @@
+"""
 # Space : O(n)
 # Time  : O(n)
+"""
 
 class Solution:
     def increasingTriplet(self, nums: List[int]) -> bool:

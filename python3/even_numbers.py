@@ -1,4 +1,7 @@
-# leetcode
+"""
+Space   : O(1)
+Time    : O(n)
+"""
 
 class Solution:
     def findNumbers(self, nums: List[int]) -> int:

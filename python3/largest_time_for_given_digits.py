@@ -1,6 +1,9 @@
 from itertools import permutations 
 
-# leetcode
+"""
+Space   : O(n)
+Time    : O(n!)
+"""
 
 class Solution:
     def largestTimeFromDigits(self, A: List[int]) -> str:

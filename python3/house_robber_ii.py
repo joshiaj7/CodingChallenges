@@ -1,4 +1,7 @@
-# leetcode
+"""
+Space   : O(n)
+Time    : O(n)
+"""
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -27,7 +30,5 @@ class Solution:
                 two[idx] = nums[idx+1] + max(two[idx-2], two[idx-3])
             ans = max(ans, two[idx])
         
-        print(one)
-        print(two)
         return ans
         

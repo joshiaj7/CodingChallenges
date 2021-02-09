@@ -1,3 +1,8 @@
+"""
+Space   : O(n)
+Time    : O(n)
+"""
+
 def solve(dolls):
     ans = 0
     N = len(dolls)
@@ -13,7 +18,7 @@ def solve(dolls):
         else:
             hashmap[i] += 1
 
-    for k, v in hashmap.items():
+    for v in hashmap.values():
         ans = max(ans, v)
 
     return ans

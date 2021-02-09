@@ -1,10 +1,10 @@
-# leetcode
+from model import ListNode
 
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+"""
+Space   : O(1)
+Time    : O(n)
+"""
+
 class Solution:
     def deleteNode(self, head, key):  
         temp = head
@@ -15,6 +15,7 @@ class Solution:
             else:
                 break
         head = temp
+        prev = head
 
         while temp:  
             if temp.val == key:  

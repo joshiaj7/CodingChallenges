@@ -5,7 +5,6 @@ Time    : O(n**2)
 
 
 class NumMatrix:
-
     def __init__(self, matrix: List[List[int]]):
         self.matrix = matrix
 
@@ -13,10 +12,8 @@ class NumMatrix:
         ans = 0
 
         for y in range(row1, row2+1):
-            # print(self.matrix[y][col1:col2+1])
             ans += sum(self.matrix[y][col1:col2+1])
 
-        # print("")
         return ans
 
 # Your NumMatrix object will be instantiated and called as such:

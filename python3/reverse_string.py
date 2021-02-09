@@ -12,6 +12,3 @@ class Solution:
         while idx < len(s):
             s[idx] = dup[len(s) - 1 - idx]
             idx += 1
-            
-        print(s)
-            

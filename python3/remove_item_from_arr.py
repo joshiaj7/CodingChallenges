@@ -8,9 +8,6 @@ class Solution:
             if nums[idx] != val:
                 unique += 1
                 memo.append(nums[idx])
-                
-        print(memo)
-        print(unique)
         
         for i in range(len(memo)):
             nums[i] = memo[i] 

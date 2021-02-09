@@ -1,4 +1,7 @@
-# leetcode
+"""
+Space   : O(1)
+Time    : O(n)
+"""
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -9,6 +12,5 @@ class Solution:
             dp += i
             res = max(dp, res)
             dp = max(dp, 0)
-            
-        print(res)
+
         return res

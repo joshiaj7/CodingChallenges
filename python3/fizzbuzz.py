@@ -1,4 +1,7 @@
-# leetcode
+"""
+Space   : O(n)
+Time    : O(n)
+"""
 
 class Solution:
     def fizzBuzz(self, n: int) -> List[str]:
@@ -14,6 +17,5 @@ class Solution:
             if word == '':
                 word = str(i)
             ans.append(word)
-        
-        print(ans)
+
         return ans

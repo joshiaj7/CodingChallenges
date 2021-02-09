@@ -1,12 +1,10 @@
-# Space : O(n)
-# Time  : O(n)
+from model import TreeNode
 
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+"""
+Space : O(n)
+Time  : O(n)
+"""
+
 class Solution:
     def deepestLeavesSum(self, root: TreeNode) -> int:        
         stack = [root]

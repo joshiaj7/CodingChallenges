@@ -7,7 +7,6 @@ class Solution:
         ones = 0
         
         binary = bin(n)[2:]
-        print(binary)
         
         for i in binary:
             if i == "1":
@@ -15,6 +14,5 @@ class Solution:
         
         if ones == 1:
             return True
-        else:
-            return False
+        return False
         

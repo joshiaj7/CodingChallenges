@@ -17,7 +17,6 @@ class Solution:
             sort_val.append((j, hashmap[j]))
         
         
-        # print(sort_val[:k])
         for x, y in sort_val[:k]:
             ans.append(x)
 

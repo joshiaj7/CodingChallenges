@@ -1,9 +1,6 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+from model import TreeNode
+
+
 class Solution:
     def sumRootToLeaf(self, root: TreeNode) -> int:
         # depth first search
@@ -20,8 +17,7 @@ class Solution:
         ans = 0
         paths = []
         dfs(root, paths, '')
-        print(paths)
-
+        
         if len(paths) > 0:
             for i in paths:
                 ans += int(i, 2)

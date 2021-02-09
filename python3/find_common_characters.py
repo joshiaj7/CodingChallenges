@@ -1,16 +1,15 @@
+from collections import Counter
+
 """
 Space   : O(n)
 Time    : O(n)
 """
-
-from collections import Counter
 
 
 class Solution:
     def commonChars(self, A: List[str]) -> List[str]:
         ans = []
         count = []
-        n = len(A)
 
         for word in A:
             count.append(Counter(word))

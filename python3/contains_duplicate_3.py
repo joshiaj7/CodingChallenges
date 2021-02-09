@@ -1,5 +1,7 @@
-# leetcode
-
+"""
+Space   : O(1)
+Time    : O(n**2)
+"""
 class Solution:
     def containsNearbyAlmostDuplicate(self, nums: List[int], k: int, t: int) -> bool:
         if t == 0 and len(nums) == len(set(nums)):

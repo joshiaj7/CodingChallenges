@@ -1,8 +1,9 @@
+from model import ListNode
+
 """
 Space   : O(n)
 Time    : O(n log n)
 """
-
 
 class Solution:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:

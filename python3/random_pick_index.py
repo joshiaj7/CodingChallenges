@@ -5,7 +5,6 @@ import random
 
 
 class Solution:
-
     def __init__(self, nums: List[int]):
         self.d = {}
         for i, x in enumerate(nums):

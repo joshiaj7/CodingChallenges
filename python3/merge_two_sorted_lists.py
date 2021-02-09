@@ -1,13 +1,10 @@
+from model import ListNode
+
 """
 Space   : O(1)
 Time    : O(n)
 """
 
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         p1, p2 = l1, l2

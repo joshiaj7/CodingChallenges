@@ -22,8 +22,6 @@ class Solution:
             elif i == "D":
                 y -= 1
 
-        print(x, y)
-
         if (x == 0) and (y == 0):
             return True
 

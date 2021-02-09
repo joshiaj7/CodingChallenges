@@ -12,5 +12,4 @@ class Solution:
                 break
             ans += 1
                 
-        print(ans)
         return ans

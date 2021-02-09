@@ -16,9 +16,6 @@ class Solution:
                 mem += l
             if idx == len(s):
                 break
-            
-        print(mem)
-        print(s)
         
         if mem == s:
             return True

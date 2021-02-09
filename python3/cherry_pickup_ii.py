@@ -1,7 +1,8 @@
-# Best solution
-# Space : O(n**2)
-# Time  : O(n**2)
-
+"""
+Best solution
+Space : O(n**2)
+Time  : O(n**2)
+"""
 
 class Solution:
     def cherryPickup(self, grid) -> int:

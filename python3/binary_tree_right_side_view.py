@@ -1,8 +1,9 @@
+from model import TreeNode
+
 """
 Space   : O(n)
 Time    : O(n)
 """
-
 
 class Solution:
     def rightSideView(self, root: TreeNode) -> List[int]:

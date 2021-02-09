@@ -20,7 +20,6 @@ class Solution:
                 b = i
             elif i > c:
                 c = i
-            # print(a, b, c)
 
         if c == -10**10:
             return a

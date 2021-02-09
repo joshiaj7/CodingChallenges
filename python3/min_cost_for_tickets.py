@@ -11,7 +11,6 @@ class Solution:
             dp[i] = dp[i-1]
             
             if i == days[idx]:
-                # print("idx : {}, days : {}".format(idx, days[idx]))
                 dp[i] = min(
                     one+dp[i-1 if i-1>0 else 0], 
                     seven+dp[i-7 if i-7>0 else 0], 
@@ -22,8 +21,6 @@ class Solution:
                     idx += 1
                 else:
                     break     
-        
-        # print(dp)
-        # print(dp[days[idx]])
+
         return dp[days[idx]]
         

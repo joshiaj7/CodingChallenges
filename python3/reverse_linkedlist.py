@@ -1,4 +1,4 @@
-# leetcode
+from model import ListNode
 
 # Definition for singly-linked list.
 # class ListNode:
@@ -19,7 +19,5 @@ class Solution:
         for i in range(len(vals)-1, -1, -1):
             ptr.val = vals[i]
             ptr = ptr.next
-            # print(i)
-            
-        print(head)
+
         return head

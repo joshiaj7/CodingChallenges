@@ -14,8 +14,6 @@ class Solution:
         for j in range(len(list2)):
             h2[list2[j]] = j
 
-        # print(h1, h2)
-
         min_idx = 10**10
         ans = []
         intercept = {}
@@ -29,5 +27,4 @@ class Solution:
             if val == min_idx:
                 ans.append(key)
 
-        # print(min_idx)
         return ans

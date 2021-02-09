@@ -7,7 +7,6 @@ class Solution:
         
         word = ''
         for idx in range(leng):
-            # print(s[idx], word)
             if s[idx] != ' ':
                 word += s[idx]
             elif len(word) > 0:
@@ -17,10 +16,8 @@ class Solution:
                 words.append(word)
                 word = ''
         
-        # print (words)
         for i in range(len(words)-1, -1, -1):
             res.append(words[i])
-        
-        print (res)
+
         return " ".join(res)
         

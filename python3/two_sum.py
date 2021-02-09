@@ -21,7 +21,5 @@ class Solution:
         for i in range(len(nums)):
             if nums[i] == item1 or nums[i] == item2:
                 ans.append(i)
-
-        print(ans)
         
         return ans

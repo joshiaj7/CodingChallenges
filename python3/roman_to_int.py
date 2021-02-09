@@ -22,5 +22,4 @@ class Solution:
                 ans -= romanmap[s[idx]]
 
         ans += romanmap[s[-1]]
-        print(ans)
         return ans

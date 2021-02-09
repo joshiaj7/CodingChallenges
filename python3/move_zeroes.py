@@ -20,7 +20,3 @@ class Solution:
             
             if idx == len(nums)-1 or idx == len(nums)-zero:
                 done = True
-                
-                
-            
-        print(nums)

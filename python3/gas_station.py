@@ -1,3 +1,7 @@
+"""
+Space   : O(n)
+Time    : O(n)
+"""
 class Solution:
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
         N = len(gas)
@@ -5,8 +9,6 @@ class Solution:
 
         for i in range(N):
             dp.append(gas[i] - cost[i])
-
-        print(dp)
 
         if sum(dp) < 0:
             return -1

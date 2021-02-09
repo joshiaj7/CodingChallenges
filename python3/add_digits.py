@@ -6,8 +6,6 @@ Time    : O(n)
 
 class Solution:
     def addDigits(self, num: int) -> int:
-        ans = 0
-
         if num < 10:
             return num
 

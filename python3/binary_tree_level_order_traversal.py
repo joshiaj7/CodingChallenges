@@ -1,16 +1,9 @@
+from model import TreeNode
+
 """
 Space   : O(n)
 Time    : O(n)
 """
-
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-
-
 class Solution:
     def getDepth(self, root: TreeNode) -> int:
         if not root:
@@ -27,8 +20,6 @@ class Solution:
 
         dep = self.getDepth(root)
         ans = [[] for i in range(dep)]
-
-        # print(ans)
 
         stack = [(root, 0)]
         while stack:

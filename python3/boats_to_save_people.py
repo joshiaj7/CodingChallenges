@@ -6,7 +6,6 @@ class Solution:
         Space   : O(n)
         """
         ans = 0
-        n = len(people)
         d = {}
         max_w, min_w = 0, 30000
 

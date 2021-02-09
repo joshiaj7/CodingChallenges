@@ -1,10 +1,9 @@
+from collections import Counter
+
 """
 Space   : O(n)
 Time    : O(n)
 """
-
-from collections import Counter
-
 
 class Solution:
     def buddyStrings(self, A: str, B: str) -> bool:
@@ -24,7 +23,7 @@ class Solution:
             return False
 
         # check if there's duplicate letter in A
-        for k, v in ca.items():
+        for _, v in ca.items():
             if v > 1:
                 dupe = True
                 break

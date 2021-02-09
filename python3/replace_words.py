@@ -1,24 +1,4 @@
-class Trie:
-    def __init__(self):
-        self.root = {}
-
-    def insert(self, word):
-        p = self.root
-        for c in word:
-            if c not in p:
-                p[c] = {}
-            p = p[c]
-        p['#'] = True
-
-    def search(self, word):
-        p = self.root
-        for i, c in enumerate(word):
-            if c not in p:
-                return word
-            p = p[c]
-            if '#' in p:
-                return word[:i+1]
-        return word
+from model import Trie
 
 
 class Solution:
@@ -68,7 +48,7 @@ class Solution:
         trie = Trie()
         for word in dictionary:
             trie.insert(word)
-        trie.out()
+
         res = []
         for s in sentence.split():
             res.append(trie.search(s))

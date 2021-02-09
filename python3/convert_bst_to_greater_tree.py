@@ -1,4 +1,4 @@
-import TreeNode
+from model import TreeNode
 
 # Space : O(n)
 # Time  : O(n)

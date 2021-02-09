@@ -1,5 +1,8 @@
 import TreeNode
 
+# Space : O(n)
+# Time  : O(n)
+
 class Solution:
     def getInorder(self, root: TreeNode) -> List[int]:
         res = []

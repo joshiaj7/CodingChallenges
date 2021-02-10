@@ -7,16 +7,23 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-// Node is a leetcode-format binary tree with neighbor node
-type Node struct {
+// BSTNext is a leetcode-format binary tree with neighbor node
+type BSTNext struct {
 	Val   int
-	Left  *Node
-	Right *Node
-	Next  *Node
+	Left  *BSTNext
+	Right *BSTNext
+	Next  *BSTNext
 }
 
 // ListNode is a leetcode-format linked list
 type ListNode struct {
 	Val  int
 	Next *ListNode
+}
+
+// RandListNode is a leetcode-format linked list with random
+ type RandListNode struct {
+     Val int
+     Next *RandListNode
+    Random *RandListNode
 }

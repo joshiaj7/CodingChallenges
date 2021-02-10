@@ -11,12 +11,20 @@ class ListNode:
         self.next = next
 
 
-class Node:
-    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+class BSTNext:
+    def __init__(self, val: int = 0, left: BSTNext = None, right: BSTNext = None, next: BSTNext = None):
         self.val = val
         self.left = left
         self.right = right
         self.next = next
+
+
+class RandListNode:
+    def __init__(self, x: int, next: RandListNode = None, random: RandListNode = None):
+        self.val = int(x)
+        self.next = next
+        self.random = random
+
 
 class Trie:
     def __init__(self):

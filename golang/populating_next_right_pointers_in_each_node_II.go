@@ -7,16 +7,16 @@ import (
 // Space	: O(n)
 // Time		: O(n)
 
-func connect(root *model.Node) *model.Node {
+func connect(root *model.BSTNext) *model.BSTNext {
 	if root == nil {
 		return root
 	}
 
-	stack := []*model.Node{root}
+	stack := []*model.BSTNext{root}
 
 	for len(stack) > 0 {
 		n := len(stack)
-		temp := []*model.Node{}
+		temp := []*model.BSTNext{}
 
 		for i := 0; i < n-1; i++ {
 			stack[i].Next = stack[i+1]

@@ -1,6 +1,4 @@
-from model import Node
-
-
+from model import BSTNext
 
 """
 Space   : O(n)
@@ -9,7 +7,7 @@ Time    : O(n)
 
 
 class Solution:
-    def connect(self, root: Node) -> Node:
+    def connect(self, root: BSTNext) -> BSTNext:
         if not root:
             return root
 

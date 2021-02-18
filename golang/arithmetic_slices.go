@@ -1,5 +1,8 @@
 package golang
 
+// Space : O(n)
+// Time	: O(n)
+
 func numberOfArithmeticSlices(A []int) int {
 	ans := 0
 	var temp []int

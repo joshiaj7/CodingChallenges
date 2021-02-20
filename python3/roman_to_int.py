@@ -1,4 +1,6 @@
-# leetcode
+# Space : O(1)
+# Time  : O(n)
+
 
 class Solution:
     def romanToInt(self, s: str) -> int:
@@ -14,7 +16,7 @@ class Solution:
         leng = len(s)
 
         ans = 0
-        
+
         for idx in range(leng-1):
             if romanmap[s[idx]] >= romanmap[s[idx+1]]:
                 ans += romanmap[s[idx]]

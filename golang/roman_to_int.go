@@ -1,5 +1,8 @@
 package golang
 
+// Space	: O(1)
+// Time		: O(n)
+
 func romanToInt(s string) int {
 	rmap := map[byte]int{
 		'I': 1,

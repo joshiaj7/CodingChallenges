@@ -3,7 +3,6 @@ package golang
 // Space : O(26)
 // Time	 : O(n)
 
-
 func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {
 		return false

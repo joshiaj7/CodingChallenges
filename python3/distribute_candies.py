@@ -1,22 +1,8 @@
-from collections import Counter
-
 """
-Space   : O(n)
-Time    : O(n)
+Space   : O(1)
+Time    : O(1)
 """
-
 
 class Solution:
-    def distributeCandies(self, candies: List[int]) -> int:
-        n = len(candies)
-
-        if n == 0:
-            return 0
-
-        c = Counter(candies)
-        num = n // 2
-
-        if len(c) >= num:
-            return num
-
-        return len(c)
+    def distributeCandies(self, candyType: List[int]) -> int:
+        return min(len(candyType) // 2, len(set(candyType)))

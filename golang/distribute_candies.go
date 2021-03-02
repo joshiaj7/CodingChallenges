@@ -3,26 +3,16 @@ package golang
 // Space   : O(n)
 // Time    : O(n)
 
-func distributeCandies(candies int, numPeople int) []int {
-	ans := make([]int, numPeople)
-	counter := 1
-	idx := 0
+func distributeCandies(candyType []int) int {
+	typesD := make(map[int]int)
 
-	for candies > 0 {
-		if candies-counter < 0 {
-			ans[idx] += candies
-			break
+	for _, ctype := range candyType {
+		if _, ok := typesD[ctype]; ok {
+			typesD[ctype]++
 		} else {
-			ans[idx] += counter
-		}
-		candies -= counter
-		counter++
-		if idx == len(ans)-1 {
-			idx = 0
-		} else {
-			idx++
+			typesD[ctype] = 1
 		}
 	}
 
-	return ans
+	return Min(len(candyType)/2, len(typesD))
 }

@@ -5,19 +5,12 @@ Time    : O(n)
 
 
 class Solution:
-    def fib(self, N: int) -> int:
-        dp = [0] * (N+1)
-        dp[0] = 0
+    def fib(self, n: int) -> int:
+        mem = [0, 1]
+        if n <= 1:
+            return mem[n]
 
-        if N == 0:
-            return dp[-1]
+        for i in range(2, n+1):
+            mem.append(mem[i-1] + mem[i-2])
 
-        dp[1] = 1
-
-        if N == 1:
-            return dp[-1]
-
-        for i in range(2, N+1):
-            dp[i] = dp[i-1] + dp[i-2]
-
-        return dp[-1]
+        return mem[-1]

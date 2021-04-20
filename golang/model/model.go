@@ -22,8 +22,14 @@ type ListNode struct {
 }
 
 // RandListNode is a leetcode-format linked list with random
- type RandListNode struct {
-     Val int
-     Next *RandListNode
-    Random *RandListNode
+type RandListNode struct {
+	Val    int
+	Next   *RandListNode
+	Random *RandListNode
+}
+
+// Node is a leetcode-format n-ary tree
+type NaryNode struct {
+	Val      int
+	Children []*NaryNode
 }

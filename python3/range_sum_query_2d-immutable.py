@@ -1,4 +1,5 @@
-# leetcode
+# Space : O(row*col)
+# Time  : O(row*col)
 
 class NumArray:
 

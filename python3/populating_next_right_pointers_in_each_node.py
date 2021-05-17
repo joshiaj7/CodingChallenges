@@ -1,4 +1,4 @@
-from model import BSTNext
+from .model import BSTNext
 
 """
 Space   : O(n)

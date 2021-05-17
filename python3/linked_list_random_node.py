@@ -1,5 +1,5 @@
 import random
-from model import ListNode
+from .model import ListNode
 
 class Solution:
     def __init__(self, head: ListNode):

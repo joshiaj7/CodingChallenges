@@ -1,4 +1,4 @@
-from model import ListNode
+from .model import ListNode
 
 
 """

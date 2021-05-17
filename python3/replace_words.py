@@ -1,4 +1,4 @@
-from model import Trie
+from .model import Trie
 
 
 class Solution:

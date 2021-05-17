@@ -1,5 +1,5 @@
 
-from model import TreeNode
+from .model import TreeNode
 
 """
 Space   : O(n)

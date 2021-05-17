@@ -1,4 +1,4 @@
-from model import RandListNode
+from .model import RandListNode
 
 """
 Space   : O(2n)

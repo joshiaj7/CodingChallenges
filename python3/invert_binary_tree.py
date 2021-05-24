@@ -1,5 +1,7 @@
 from .model import TreeNode
 
+# Time  : O(n)
+# Space : O(1)
 class Solution:
     def invertTree(self, root: TreeNode) -> TreeNode:
         p = root

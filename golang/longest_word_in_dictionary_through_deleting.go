@@ -1,4 +1,4 @@
-package golang
+package main
 
 // Space	: O(1)
 // Time		: O(n^2)

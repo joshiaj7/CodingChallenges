@@ -1,4 +1,4 @@
-package golang
+package main
 
 // Space	: O(k)
 // Time	: O(n)

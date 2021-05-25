@@ -1,4 +1,4 @@
-package golang
+package main
 
 // Space : O(row*col)
 // Time  : O(row*col)

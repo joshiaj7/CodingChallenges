@@ -1,4 +1,4 @@
-package golang
+package main
 
 func validMountainArray(arr []int) bool {
 	n := len(arr)

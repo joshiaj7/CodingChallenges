@@ -1,4 +1,4 @@
-package golang
+package main
 
 func brokenCalc(X int, Y int) int {
 	ans := 0

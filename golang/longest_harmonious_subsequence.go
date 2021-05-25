@@ -1,4 +1,4 @@
-package golang
+package main
 
 func findLHS(nums []int) int {
 	ans := 0

@@ -1,4 +1,4 @@
-package golang
+package main
 
 func hammingWeight(num uint32) int {
 	ans := 0

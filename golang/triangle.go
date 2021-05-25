@@ -1,4 +1,4 @@
-package golang
+package main
 
 func minimumTotal(triangle [][]int) int {
 	ans := 1000000

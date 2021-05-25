@@ -1,4 +1,4 @@
-package golang
+package main
 
 func shortestToChar(s string, c byte) []int {
 	var ans, indices []int

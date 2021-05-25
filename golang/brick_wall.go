@@ -1,4 +1,4 @@
-package golang
+package main
 
 func leastBricks(wall [][]int) int {
 	if len(wall) == 0 {

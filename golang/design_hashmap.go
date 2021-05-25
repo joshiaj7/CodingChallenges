@@ -1,4 +1,4 @@
-package golang
+package main
 
 // MyHashMap is class model for this question
 type MyHashMap struct {
@@ -27,7 +27,7 @@ func (obj *MyHashMap) Get(key int) int {
 	return obj.Values[key]
 }
 
-// Remove : Removes the mapping of the specified value key if this map contains a mapping for the key 
+// Remove : Removes the mapping of the specified value key if this map contains a mapping for the key
 func (obj *MyHashMap) Remove(key int) {
 	obj.Values[key] = -1
 }

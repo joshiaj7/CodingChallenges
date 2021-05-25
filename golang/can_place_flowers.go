@@ -1,4 +1,4 @@
-package golang
+package main
 
 func canPlaceFlowers(flowerbed []int, n int) bool {
 	if n == 0 {

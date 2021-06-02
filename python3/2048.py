@@ -1,6 +1,10 @@
 import random
 
+
 def validateTarget(T):
+    if T == 1:
+        return False
+
     b = bin(T)[2:]
 
     ones = 0
@@ -12,6 +16,7 @@ def validateTarget(T):
         return False
 
     return True
+
 
 def getEmptySpace(board, N):
     empty_coords = []
@@ -30,10 +35,12 @@ def spawnNumber(board, empty_coords, init):
     for i in range(rep):
         rand_coord = random.randint(0, len(empty_coords)-1)
         x, y = empty_coords[rand_coord]
-        board[y][x] = 2
+        if random.randint(0, 9) == 0:
+            board[y][x] = 4
+        else:
+            board[y][x] = 2
         empty_coords = empty_coords[:rand_coord] + empty_coords[rand_coord+1:]
 
-    return board
 
 def createBoard(N):
     board = []
@@ -42,24 +49,44 @@ def createBoard(N):
 
     return board
 
+
 def printBoard(board):
     N = len(board)
 
-    for y in range(N+2):
-        if y == 0:
-            line = "   "
+    for y in range(N*2+1):
+        if y % 2 == 0:
+            line = "="
             for x in range(N):
-                line += "{} ".format(x)
-        elif y == 1:
-            line = "   "
-            for x in range(N):
-                line += "=="
+                line += "====="
         else:
-            line = "{} |".format(y-2)
+            line = "|"
             for x in range(N):
-                char = board[y-2][x] if board[y-2][x] else " "
-                line += "{} ".format(char)
+                if not board[y//2][x]:
+                    line += "    |"
+                elif board[y//2][x] >= 1000:
+                    line += "{}|".format(board[y//2][x])
+                elif board[y//2][x] >= 100:
+                    line += "{} |".format(board[y//2][x])
+                elif board[y//2][x] >= 10:
+                    line += " {} |".format(board[y//2][x])
+                elif board[y//2][x] >= 0:
+                    line += " {}  |".format(board[y//2][x])
         print(line)
+
+
+def sortLine(line, N):
+    for i in range(N):
+        for j in range(i+1, N):
+            if not line[i]:
+                line[i] = line[j]
+                line[j] = None
+            elif line[i] == line[j] and line[i]:
+                line[i] += line[j]
+                line[j] = None
+                break
+            elif line[i] and line[j] and line[i] != line[j]:
+                break
+
 
 def tiltUp(board):
     N = len(board)
@@ -71,20 +98,11 @@ def tiltUp(board):
         # get per line
         for y in range(N):
             line.append(board[y][x])
-        
+
         prev_line = line.copy()
+
         # bubble sort
-        for i in range(N):
-            for j in range(i+1, N):
-                if not line[i]:
-                    line[i] = line[j]
-                    line[j] = None
-                elif line[i] == line[j] and line[i]:
-                    line[i] += line[j]
-                    line[j] = None
-                    break
-                elif line[i] and line[j] and line[i] != line[j]:
-                    break
+        sortLine(line, N)
 
         if prev_line != line:
             is_tilted = True
@@ -92,14 +110,13 @@ def tiltUp(board):
         for y in range(N):
             board[y][x] = line[y]
 
-
-    return board, is_tilted
+    return is_tilted
 
 
 def tiltLeft(board):
     N = len(board)
     is_tilted = False
-    
+
     for y in range(N):
         line = []
 
@@ -108,18 +125,9 @@ def tiltLeft(board):
             line.append(board[y][x])
 
         prev_line = line.copy()
+
         # bubble sort
-        for i in range(N):
-            for j in range(i+1, N):
-                if not line[i]:
-                    line[i] = line[j]
-                    line[j] = None
-                elif line[i] == line[j] and line[i]:
-                    line[i] += line[j]
-                    line[j] = None
-                    break
-                elif line[i] and line[j] and line[i] != line[j]:
-                    break
+        sortLine(line, N)
 
         if prev_line != line:
             is_tilted = True
@@ -127,13 +135,13 @@ def tiltLeft(board):
         for x in range(N):
             board[y][x] = line[x]
 
-    return board, is_tilted
+    return is_tilted
 
 
 def tiltDown(board):
     N = len(board)
     is_tilted = False
-    
+
     for x in range(N):
         line = []
 
@@ -142,32 +150,23 @@ def tiltDown(board):
             line.append(board[y][x])
 
         prev_line = line.copy()
+
         # bubble sort
-        for i in range(N):
-            for j in range(i+1, N):
-                if not line[i]:
-                    line[i] = line[j]
-                    line[j] = None
-                elif line[i] == line[j] and line[i]:
-                    line[i] += line[j]
-                    line[j] = None
-                    break
-                elif line[i] and line[j] and line[i] != line[j]:
-                    break
-        
+        sortLine(line, N)
+
         if prev_line != line:
             is_tilted = True
 
         for y in range(N-1, -1, -1):
             board[y][x] = line[N-1-y]
 
-    return board, is_tilted
+    return is_tilted
 
 
 def tiltRight(board):
     N = len(board)
     is_tilted = False
-    
+
     for y in range(N):
         line = []
 
@@ -176,39 +175,30 @@ def tiltRight(board):
             line.append(board[y][x])
 
         prev_line = line.copy()
+
         # bubble sort
-        for i in range(N):
-            for j in range(i+1, N):
-                if not line[i]:
-                    line[i] = line[j]
-                    line[j] = None
-                elif line[i] == line[j] and line[i]:
-                    line[i] += line[j]
-                    line[j] = None
-                    break
-                elif line[i] and line[j] and line[i] != line[j]:
-                    break
-        
+        sortLine(line, N)
+
         if prev_line != line:
             is_tilted = True
 
         for x in range(N-1, -1, -1):
             board[y][x] = line[N-1-x]
 
-    return board, is_tilted
+    return is_tilted
 
 
 def moveBoard(board, d):
     if d == "w":
-        board, is_tilted = tiltUp(board)
+        is_tilted = tiltUp(board)
     elif d == "a":
-        board, is_tilted  = tiltLeft(board)
+        is_tilted = tiltLeft(board)
     elif d == "s":
-        board, is_tilted  = tiltDown(board)
+        is_tilted = tiltDown(board)
     elif d == "d":
-        board, is_tilted  = tiltRight(board)
+        is_tilted = tiltRight(board)
 
-    return board, is_tilted 
+    return is_tilted
 
 
 def checkIfWin(board, T):
@@ -222,13 +212,13 @@ def checkIfWin(board, T):
             # check win
             if board[y][x] == T:
                 return "win"
-            
+
     return "continue"
 
 
 def checkIfDeadlock(board):
     N = len(board)
-    c = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+    c = [(1, 0), (0, 1)]
 
     # check deadlock
     is_deadlock = True
@@ -266,8 +256,8 @@ def playGame():
     # initial
     board = createBoard(N)
     empty_coords = getEmptySpace(board, N)
-    board = spawnNumber(board, empty_coords, True)
-    
+    spawnNumber(board, empty_coords, True)
+
     if N == 1 and T == 2:
         print("==========================")
         print("CONGRATULATIONS! YOU WON!")
@@ -284,23 +274,22 @@ def playGame():
         print("Enter direction (wasd) : ")
         d = input().lower()
 
-        board, is_tilted = moveBoard(board, d)
+        is_tilted = moveBoard(board, d)
         result = checkIfWin(board, T)
         if result == "win":
             break
-        
+
         # spawn another number
         if is_tilted:
             empty_coords = getEmptySpace(board, N)
-            board = spawnNumber(board, empty_coords, False)
+            spawnNumber(board, empty_coords, False)
             if len(empty_coords) == 0:
                 result = checkIfDeadlock(board)
                 if result == "lose":
                     break
         else:
             print("untilted")
-        
-        
+
     if result == "win":
         print("==========================")
         print("CONGRATULATIONS! YOU WON!")
@@ -312,11 +301,5 @@ def playGame():
     printBoard(board)
 
 
-
-
 if __name__ == "__main__":
     playGame()
-
-    
-
-

@@ -1,9 +1,14 @@
 package main
 
+import (
+	"math"
+	"sort"
+)
+
 // Space : O(1)
 // Time  : O(n log n)
 
-func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
+func maxCakeArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
     horizontalCuts = append(horizontalCuts, 0)
     horizontalCuts = append(horizontalCuts, h)
     verticalCuts = append(verticalCuts, 0)
@@ -23,3 +28,4 @@ func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
     }
     
     return (mh * mv) % (int(math.Pow(10, 9)) + 7)
+}

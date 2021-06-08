@@ -22,6 +22,6 @@ func getPreorder(root *model.NaryNode) []int {
 	return res
 }
 
-func preorder(root *model.Node) []int {
+func preorder(root *model.NaryNode) []int {
 	return getPreorder(root)
 }

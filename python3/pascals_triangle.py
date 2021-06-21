@@ -8,26 +8,13 @@ class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
         ans = []
 
-        if numRows == 0:
-            return ans
-
-        ans.append([1])
-
-        if numRows == 1:
-            return ans
-
-        ans.append([1, 1])
-
-        if numRows == 2:
-            return ans
-
-        for i in range(3, numRows+1):
+        for i in range(1, numRows+1):
             temp = []
-            for idx in range(i):
-                if (idx == 0) or (idx == i-1):
+            for j in range(1, i+1):
+                if (j == 1) or (j == i):
                     temp.append(1)
-                    continue
-                temp.append(ans[i-2][idx-1] + ans[i-2][idx])
+                else:
+                    temp.append(ans[i-2][j-2] + ans[i-2][j-1])
             ans.append(temp)
 
         return ans

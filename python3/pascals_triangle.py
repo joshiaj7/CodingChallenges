@@ -4,6 +4,9 @@ Time    : O(nk)
 """
 
 
+# // Space	: O(2n)
+# // Time	: O(2n)
+
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
         ans = []

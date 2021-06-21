@@ -1,7 +1,7 @@
 package main
 
-// Space	: O(n**2)
-// Time		: O(n**2)
+// Space	: O(2n)
+// Time		: O(2n)
 
 func generate(numRows int) [][]int {
     var ans [][]int

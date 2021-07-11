@@ -47,3 +47,9 @@ class Trie:
             if '#' in p:
                 return word[:i+1]
         return word
+
+
+class NaryNode:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children

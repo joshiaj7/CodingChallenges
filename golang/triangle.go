@@ -1,5 +1,8 @@
 package main
 
+// Space	: O(1)
+// Time		: O(n^2)
+
 func minimumTotal(triangle [][]int) int {
 	ans := 1000000
 	n := len(triangle)

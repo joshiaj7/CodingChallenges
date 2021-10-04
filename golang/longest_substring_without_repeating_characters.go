@@ -1,5 +1,8 @@
 package main
 
+// Space	: O(n)
+// Time		: O(n)
+
 func lengthOfLongestSubstring(s string) int {
 	start, ans := 0, 0
 	d := map[byte]int{}

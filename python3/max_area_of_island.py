@@ -1,3 +1,5 @@
+# Space     : O(n)
+# Time      : O(m*n)
 class Solution:
     def crawl(self, grid, x, y):
         def bfs(dx, dy):

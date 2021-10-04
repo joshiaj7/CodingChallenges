@@ -5,32 +5,35 @@ import (
 )
 
 /**
-Space	: O(n)
+Space	: O(1)
 Time	: O(n)
 */
 
 func removeNthFromEnd(head *model.ListNode, n int) *model.ListNode {
-	var mem []int
-	phead := head
+	p := head
+	l := 0
 
-	for phead != nil {
-		mem = append(mem, phead.Val)
-		phead = phead.Next
+	for p != nil {
+		l++
+		p = p.Next
 	}
 
-	ans := &model.ListNode{
-		Val: 0,
-	}
-	pans := ans
-
-	for i := 0; i < len(mem); i++ {
-		if i != len(mem)-n {
-			pans.Next = &model.ListNode{
-				Val: mem[i],
-			}
-			pans = pans.Next
-		}
+	if n == l {
+		return head.Next
 	}
 
-	return ans.Next
+	p = head
+	stop := l - n
+	for stop-1 > 0 {
+		stop--
+		p = p.Next
+	}
+
+	if p.Next.Next == nil {
+		p.Next = nil
+	} else {
+		p.Next = p.Next.Next
+	}
+
+	return head
 }

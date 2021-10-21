@@ -5,43 +5,26 @@ import random
 class RandomizedSet:
 
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
         self.data = {}
-        
 
     def insert(self, val: int) -> bool:
-        """
-        Inserts a value to the set. Returns true if the set did not already contain the specified element.
-        """
-        self.isSet = True
-        if val not in self.data:
-            self.data[val] = 1
-        else:
-            self.isSet = False
-        return self.isSet
+        if val in self.data:
+            return False
+        self.data[val] = 1
+        return True
         
 
     def remove(self, val: int) -> bool:
-        """
-        Removes a value from the set. Returns true if the set contained the specified element.
-        """
-        self.isRemoved = True
-        if val in self.data:
-            del self.data[val]
-        else:
-            self.isRemoved = False
-        return self.isRemoved
+        if val not in self.data:
+            return False
+        del self.data[val]
+        return True
         
 
     def getRandom(self) -> int:
-        """
-        Get a random element from the set.
-        """
-        self.key, self.val = random.choice(list(self.data.items()))
-        print(self.key)
-        return self.key
+        val = random.choice(list(self.data.keys()))
+        return val
+        
         
 
 

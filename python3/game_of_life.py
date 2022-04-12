@@ -1,68 +1,49 @@
 """
-Space   : O(mn)
-Time    : O(mn)
+Space   : O(m*n)
+Time    : O(m*n)
 """
 
 
 class Solution:
-    def getNeighbor(self, board: List[List[int]], x: int, y: int) -> int:
-        neighbor = 0
-
-        # left
-        if x > 0 and board[y][x-1] == 1:
-            neighbor += 1
-
-        # right
-        if x < len(board[0])-1 and board[y][x+1] == 1:
-            neighbor += 1
-
-        # up
-        if y > 0 and board[y-1][x] == 1:
-            neighbor += 1
-
-        # down
-        if y < len(board)-1 and board[y+1][x] == 1:
-            neighbor += 1
-
-        # left-up
-        if x > 0 and y > 0 and board[y-1][x-1] == 1:
-            neighbor += 1
-
-        # left-down
-        if x > 0 and y < len(board)-1 and board[y+1][x-1] == 1:
-            neighbor += 1
-
-        # right-up
-        if x < len(board[0])-1 and y > 0 and board[y-1][x+1] == 1:
-            neighbor += 1
-
-        # right-down
-        if x < len(board[0])-1 and y < len(board)-1 and board[y+1][x+1] == 1:
-            neighbor += 1
-
-        return neighbor
-
     def gameOfLife(self, board: List[List[int]]) -> None:
         """
         Do not return anything, modify board in-place instead.
         """
+        # live
+        # n < 2  -> 0
+        # n == 2 / 3 -> 1
+        # n > 3 -> 0
+
+        # dead
+        # n == 3 -> 1
+
         row = len(board)
         col = len(board[0])
+        neighbors = []
+        coord = [(0, 1), (1, 0), (0, -1), (-1, 0),
+                 (1, 1), (-1, -1), (1, -1), (-1, 1)]
 
-        mem = [[0] * col for _ in range(row)]
+        # fill neighbors
+        for r in range(row):
+            line = []
+            for c in range(col):
+                live = 0
+                for x, y in coord:
+                    if (r+y) >= 0 and (r+y) < row and (c+x) >= 0 and c+x < col:
+                        if board[r+y][c+x] == 1:
+                            live += 1
+                line.append(live)
+            neighbors.append(line)
 
-        for y in range(row):
-            for x in range(col):
-                neighbor = self.getNeighbor(board, x, y)
-                if board[y][x] == 1:
-                    if neighbor >= 2 and neighbor <= 3:
-                        mem[y][x] = 1
+        for r in range(row):
+            for c in range(col):
+                i = 0
+                if board[r][c] == 1:
+                    if neighbors[r][c] < 2 or neighbors[r][c] > 3:
+                        i = 0
                     else:
-                        mem[y][x] = 0
+                        i = 1
                 else:
-                    if neighbor == 3:
-                        mem[y][x] = 1
-
-        for i in range(row):
-            for j in range(col):
-                board[i][j] = mem[i][j]
+                    if neighbors[r][c] == 3:
+                        i = 1
+                board[r][c] = i

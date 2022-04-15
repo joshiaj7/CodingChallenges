@@ -2,6 +2,7 @@
 Space : O(n*m)
 Time  : O(n*m)
 DP Approach
+bottom up
 """
 
 

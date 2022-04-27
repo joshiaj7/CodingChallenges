@@ -1,8 +1,8 @@
 # Space : O(n)
 # Time  : O(n^2)
 
+# Method:
 # Minimum Spanning Tree
-# hackerearth.com/practice/algorithms/graphs/minimum-spanning-tree/tutorial/
 
 class Solution:
     def minCostConnectPoints(self, points: List[List[int]]) -> int:

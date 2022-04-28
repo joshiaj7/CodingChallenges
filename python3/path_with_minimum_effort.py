@@ -1,9 +1,11 @@
 import heapq
 
 """
-Djikstra algorithm to find shortest path
 Space   : O(mn)
 Time    : O(mn log(mn))
+
+method:
+Djikstra algorithm to find shortest path
 """
 
 

@@ -20,9 +20,10 @@ class Solution:
                 if k - key != key:
                     count = min(val, d[k - key])
                     d[k - key] -= count
+                    d[key] -= count
                 else:
                     count = val // 2
-                d[key] -= count
+                    d[key] -= count * 2
                 ans += count
 
         return ans

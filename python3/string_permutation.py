@@ -1,4 +1,4 @@
-# Space     : O(n^2)
+# Space     : O(n!)
 # Time      : O(n!)
 
 # string permutation here

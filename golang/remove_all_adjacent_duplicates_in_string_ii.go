@@ -1,12 +1,12 @@
 package main
 
-"""
+/*
 Space : O(n)
 Time  : O(n)
 
 Method:
-Stack 
-"""
+Stack
+*/
 
 
 func removeDuplicates2(s string, k int) string {

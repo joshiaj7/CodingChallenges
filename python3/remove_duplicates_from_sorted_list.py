@@ -7,7 +7,7 @@ Time    : O(n)
 
 
 class Solution:
-    def deleteDuplicates2(self, head: ListNode) -> ListNode:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head or not head.next:
             return head
 
@@ -19,15 +19,14 @@ class Solution:
             if not ph.next:
                 pa.next = ph
                 break
-            elif ph.val == ph.next.val:
-                rem = ph.val
-                while ph.val == rem:
-                    ph = ph.next
-                    if not ph:
-                        break
-            else:
-                pa.next = ListNode(ph.val)
-                pa = pa.next
+
+            while ph.val == ph.next.val:
                 ph = ph.next
+                if not ph.next:
+                    break
+
+            pa.next = ListNode(ph.val)
+            pa = pa.next
+            ph = ph.next
 
         return ans.next

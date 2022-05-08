@@ -53,3 +53,25 @@ class NaryNode:
     def __init__(self, val=None, children=None):
         self.val = val
         self.children = children
+
+
+class NestedInteger:
+    def isInteger(self) -> bool:
+        return True
+        """
+       @return True if this NestedInteger holds a single integer, rather than a nested list.
+       """
+
+    def getInteger(self) -> int:
+        return 0
+        """
+       @return the single integer that this NestedInteger holds, if it holds a single integer
+       Return None if this NestedInteger holds a nested list
+       """
+
+    def getList(self) -> List[NestedInteger]:
+        return NestedInteger()
+        """
+       @return the nested list that this NestedInteger holds, if it holds a nested list
+       Return None if this NestedInteger holds a single integer
+       """

@@ -1,5 +1,14 @@
 from .model import NestedInteger
 
+"""
+Space   : O(n)
+Time    : O(n)
+
+Method:
+DFS
+"""
+
+
 # """
 # This is the interface that allows for creating nested lists.
 # You should not implement it, or speculate about its implementation

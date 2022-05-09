@@ -1,5 +1,10 @@
-# Space	: O(n)
-# Time		: O(n!)
+"""
+Space	    : O(n)
+Time		: O(n)
+
+Method:
+recursive
+"""
 
 
 class Solution:
@@ -16,10 +21,10 @@ class Solution:
             '9': ['w', 'x', 'y', 'z'],
         }
         n = len(digits)
-        
+
         if not digits:
             return ans
-        
+
         def combination(digs, path):
             if len(path) == n:
                 ans.append(path)
@@ -27,7 +32,7 @@ class Solution:
                 for letters in phone_map[digs[0]]:
                     for letter in letters:
                         combination(digs[1:], path + letter)
-        
+
         combination(digits, "")
-        
+
         return ans

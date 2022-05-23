@@ -1,6 +1,8 @@
 """
 Space : O(n*m)
 Time  : O(n*m)
+
+Method:
 DP Approach
 bottom up
 """

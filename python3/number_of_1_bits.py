@@ -1,5 +1,5 @@
 """
-Space   : O(n)
+Space   : O(1)
 Time    : O(n)
 """
 
@@ -7,11 +7,8 @@ Time    : O(n)
 class Solution:
     def hammingWeight(self, n: int) -> int:
         ans = 0
-        binary = bin(n)[2:]
-        n = len(binary)
-
-        for i in binary:
-            if i == '1':
+        while n != 0:
+            if n & 1 == 1:
                 ans += 1
-
+            n >>= 1
         return ans

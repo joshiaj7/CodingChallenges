@@ -1,5 +1,10 @@
 package main
 
+/*
+Space   : O(1)
+Time    : O(n)
+*/
+
 func hammingWeight(num uint32) int {
 	ans := 0
 

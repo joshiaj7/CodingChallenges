@@ -1,7 +1,7 @@
 package main
 
 // Space	: O(1)
-// Time		: O(n)
+// Time		: O(log n)
 
 func numberOfSteps(num int) int {
 	ans := 0

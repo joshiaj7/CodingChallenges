@@ -1,33 +1,27 @@
-# Space : O(n)
-# Time  : O(n**2)
+"""
+Space : O(n)
+Time  : O(n**2)
+
+method:
+bitmask manipulation
+"""
+
 
 class Solution:
     def maxProduct(self, words: List[str]) -> int:
-        def checkContainedKey(a, b):
-            for k in a.keys():
-                if k in b:
-                    return True
-            
-            return False
-        
         ans = 0
-        word_dicts = []
-        
-        for word in words:
-            d = {}
-            m = len(word)
-            for letter in word:
-                d[letter] = 1
-            word_dicts.append(d)    
-            
-        n = len(word_dicts)
-        
+        n = len(words)
+        bitmask = {}
+
+        for w in words:
+            bit = 0
+            for l in w:
+                bit |= (1 << (ord(l) - 97))
+            bitmask[w] = bit
+
         for i in range(n):
             for j in range(i+1, n):
-                if not checkContainedKey(word_dicts[i], word_dicts[j]):
+                if bitmask[words[i]] & bitmask[words[j]] == 0:
                     ans = max(ans, len(words[i]) * len(words[j]))
-        
+
         return ans
-        
-        
-        

@@ -1,7 +1,12 @@
 package main
 
-// space : O(1)
-// time  : O(n)
+/*
+space : O(n)
+time  : O(n)
+
+Method:
+Sliding window
+*/
 
 import (
 	"math"

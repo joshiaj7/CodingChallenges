@@ -1,6 +1,6 @@
 """
-Space    : O(n)
-Time     : O(n)
+Space    : O(m)
+Time     : O(m + n)
 """
 
 
@@ -9,26 +9,22 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        if n == 0:
-            return
 
-        stack = []
+        buf = nums1[:m]
 
-        i, j = 0, 0
-        while (i < m) or (j < n):
-            if i < m and j < n:
-                if nums1[i] < nums2[j]:
-                    stack.append(nums1[i])
-                    i += 1
-                else:
-                    stack.append(nums2[j])
-                    j += 1
-            elif i < m:
-                stack.append(nums1[i])
-                i += 1
-            elif j < n:
-                stack.append(nums2[j])
-                j += 1
+        p1, p2 = 0, 0
+        while p1 < m and p2 < n:
+            if buf[p1] < nums2[p2]:
+                nums1[p1 + p2] = buf[p1]
+                p1 += 1
+            else:
+                nums1[p1 + p2] = nums2[p2]
+                p2 += 1
 
-        for idx in range(len(nums1)):
-            nums1[idx] = stack[idx]
+        while p1 < m:
+            nums1[p1 + p2] = buf[p1]
+            p1 += 1
+
+        while p2 < n:
+            nums1[p1 + p2] = nums2[p2]
+            p2 += 1

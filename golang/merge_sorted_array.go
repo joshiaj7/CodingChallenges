@@ -1,31 +1,35 @@
 package main
 
-// Space	: O(m + n)
-// Time		: O(m + n)
+/*
+Space	: O(m)
+Time	: O(m + n)
+*/
 
-func merge(nums1 []int, m int, nums2 []int, n int) {
-	var temp []int
-	i, j := 0, 0
+func merge(nums1 []int, m int, nums2 []int, n int)  {
+    p1, p2 := 0, 0
 
-	for i < m && j < n {
-		if nums1[i] < nums2[j] {
-			temp = append(temp, nums1[i])
-			i++
-		} else {
-			temp = append(temp, nums2[j])
-			j++
-		}
-	}
-
-	if i < m {
-		temp = append(temp, nums1[i:m]...)
-	}
-
-	if j < n {
-		temp = append(temp, nums2[j:n]...)
-	}
-
-	for k := 0; k < m+n; k++ {
-		nums1[k] = temp[k]
-	}
+    var buf []int
+    for i := 0; i < m; i++ {
+        buf = append(buf, nums1[i])
+    }
+    
+    for p1 < m && p2 < n {
+        if buf[p1] < nums2[p2] {
+            nums1[p1 + p2] = buf[p1]
+            p1++
+        } else {
+            nums1[p1 + p2] = nums2[p2]
+            p2++
+        }
+    } 
+    
+    for p1 < m {
+        nums1[p1 + p2] = buf[p1]
+        p1++
+    }
+    
+    for p2 < n {
+        nums1[p1 + p2] = nums2[p2]
+        p2++
+    }
 }

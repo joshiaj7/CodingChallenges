@@ -1,7 +1,9 @@
 package main
 
-// Space : O(1)
-// Time  : O(n)
+/*
+Space : O(1)
+Time  : O(n)
+*/
 
 func twoSum(numbers []int, target int) []int {
 	start, end := 0, len(numbers)-1

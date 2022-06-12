@@ -13,7 +13,7 @@ class Solution:
         n = len(beginWord)
 
         for word in wordList:
-            for i in range(L):
+            for i in range(word):
                 word_map[word[:i] + '*' + word[i + 1:]].append(word)
 
         q = [beginWord]

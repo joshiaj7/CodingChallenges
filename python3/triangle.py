@@ -6,7 +6,7 @@ Time    : O(n)
 
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
-        ans = 10**10
+        ans = float('inf')
         n = len(triangle)
 
         if n == 1:

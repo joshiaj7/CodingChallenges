@@ -1,17 +1,22 @@
-# Space : O(n)
-# Time  : O(len(word) * max len(word[i]))
+
+"""
+Space : O(n)
+Time  : O(len(word) * max len(word[i]))
+
+Mehtod:
+DP - bottom up
+"""
+
 
 class Solution:
     def longestStrChain(self, words: List[str]) -> int:
-        words = sorted(words, key=len)
-        predecessors = {w:1 for w in words}
-        max_length = 1
-        for w1 in words:
-            for i in range(len(w1)):
-                w2 = w1[:i]+w1[i+1:]
-                if w2 in predecessors:
-                    predecessors[w1] = max(predecessors[w2] + 1, predecessors[w1])
-            if predecessors[w1] > max_length:
-                max_length = predecessors[w1]
+        ans = 0
+        dp = {}
+        words.sort(key=lambda w: len(w))
+        for word in words:
+            for i in range(len(word)):
+                mask = word[:i] + word[i+1:]
+                dp[word] = max(dp.get(mask, 0) + 1, dp.get(word, 0))
+                ans = max(ans, dp[word])
 
-        return max_length
+        return ans

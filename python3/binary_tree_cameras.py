@@ -1,11 +1,22 @@
 from .model import TreeNode
 
-# Space : O(max_depth)
-# Time  : O(n)
+"""
+Space : O(1)
+Time  : O(n)
+
+Mehtod:
+DFS
+"""
 
 class Solution:
     ans = 0
     def minCameraCover(self, root: TreeNode) -> int:
+        """
+        0 : None node
+        1 : Supervised
+        2 : Supervised 2x
+        3 : Leaf / Unsupervised node
+        """
         def dfs(node: TreeNode) -> int:
             if not node: 
                 return 0

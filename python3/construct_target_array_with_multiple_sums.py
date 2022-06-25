@@ -1,4 +1,4 @@
-import heapq
+from heapq import heappush, heappop, heapify
 
 """
 Space   : O(n)
@@ -10,17 +10,18 @@ heap (using %)
 
 
 class Solution:
-    def isPossible(self, A):
-        total = sum(A)
-        A = [-a for a in A]
-        heapq.heapify(A)
+    def isPossible(self, target: List[int]) -> bool:
+        total = sum(target)
+        heap = [-x for x in target]
+        heapify(heap)
+
         while True:
-            a = -heapq.heappop(A)
-            total -= a
-            if a == 1 or total == 1:
+            num = -heappop(heap)
+            total -= num
+            if num == 1 or total == 1:
                 return True
-            if a < total or total == 0 or a % total == 0:
+            if num < total or total == 0 or num % total == 0:
                 return False
-            a %= total
-            total += a
-            heapq.heappush(A, -a)
+            num %= total
+            total += num
+            heappush(heap, -num)

@@ -2,9 +2,11 @@ package main
 
 import "strconv"
 
-// Space   : O(1)
-// Time    : O(l)
-// Where l = len(n)
+/*
+Space   : O(1)
+Time    : O(len(n))
+*/
+
 
 func minPartitions(n string) int {
 	ans := 0

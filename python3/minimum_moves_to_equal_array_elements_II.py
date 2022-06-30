@@ -3,13 +3,17 @@
 
 class Solution:
     def minMoves2(self, nums: List[int]) -> int:
-        n = len(nums)
         ans = 0
-        
-        nums.sort()
-        median = ((nums[n//2] + nums[(n//2)-1]) // 2) if (n % 2 == 0) else nums[n//2]
+        n = len(nums)
 
-        for x in nums:
-            ans += abs(x - median)
-        
+        nums.sort()
+
+        if n % 2 == 0:
+            median = (nums[n//2] + nums[(n//2) - 1]) // 2
+        else:
+            median = nums[n//2]
+
+        for i in nums:
+            ans += abs(i - median)
+
         return ans

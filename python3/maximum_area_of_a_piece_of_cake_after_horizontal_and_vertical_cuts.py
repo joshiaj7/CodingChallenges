@@ -1,22 +1,19 @@
-# Space : O(1)
-# Time  : O(n log n)
+"""
+Space : O(n)
+Time  : O(n log n)
+"""
+
 
 class Solution:
     def maxArea(self, h: int, w: int, horizontalCuts: List[int], verticalCuts: List[int]) -> int:
-        horizontalCuts.append(0)
-        horizontalCuts.append(h)
-        verticalCuts.append(0)
-        verticalCuts.append(w)
+        hc = [0] + sorted(horizontalCuts) + [h]
+        vc = [0] + sorted(verticalCuts) + [w]
+        mh = mv = 0
 
-        horizontalCuts.sort()
-        verticalCuts.sort()
+        for i in range(1, len(hc)):
+            mh = max(mh, hc[i] - hc[i-1])
 
-        mh = 0
-        for i in range(1, len(horizontalCuts)):
-            mh = max(mh, horizontalCuts[i] - horizontalCuts[i-1])
-
-        mv = 0
-        for j in range(1, len(verticalCuts)):
-            mv = max(mv, verticalCuts[j] - verticalCuts[j-1])
+        for i in range(1, len(vc)):
+            mv = max(mv, vc[i] - vc[i-1])
 
         return (mh * mv) % (10**9 + 7)

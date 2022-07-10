@@ -1,15 +1,17 @@
-# Space : O(n)
-# Time  : O(n)
+"""
+Space : O(n)
+Time  : O(n)
+"""
+
 
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
-        leng = len(cost)
-        dp = [0] * leng
+        n = len(cost)
+        dp = [0 for _ in range(n)]
+        dp[0] = cost[0]
+        dp[1] = cost[1]
 
-        for idx in range(leng):
-            if idx < 2:
-                dp[idx] = cost[idx]
-            else:
-                dp[idx] = cost[idx] + min(dp[idx-1], dp[idx-2])
+        for i in range(2, n):
+            dp[i] = min(dp[i-1], dp[i-2]) + cost[i]
 
-        return min(dp[leng-1], dp[leng-2])
+        return min(dp[-1], dp[-2])

@@ -6,22 +6,22 @@ Time    : O(n)
 """
 
 class Solution:
-    def rightSideView(self, root: TreeNode) -> List[int]:
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
+        
         ans = []
         stack = [root]
-
+        
         while stack:
+            ans.append(stack[-1].val)
             temp = []
-            for idx in range(len(stack)):
-                if not stack[idx]:
-                    continue
-                if idx == len(stack)-1:
-                    ans.append(stack[idx].val)
-                if stack[idx].left:
-                    temp.append(stack[idx].left)
-                if stack[idx].right:
-                    temp.append(stack[idx].right)
-
+            for node in stack:
+                if node.left:
+                    temp.append(node.left)
+                if node.right:
+                    temp.append(node.right)
+                    
             stack = temp
-
+        
         return ans

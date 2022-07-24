@@ -1,5 +1,8 @@
 package main
 
+// Space	: O(1)
+// Time		: O(m + n)
+
 func searchMatrix(matrix [][]int, target int) bool {
 	row := len(matrix)
 	col := len(matrix[0])

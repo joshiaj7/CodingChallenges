@@ -4,33 +4,29 @@ from .model import TreeNode
 # Time  : O(n)
 
 class Solution:
-    def getInorder(self, root: TreeNode) -> List[int]:
-        res = []
-
-        if root:
-            res.append(root.val)
-            res += self.getInorder(root.left)
-            res += self.getInorder(root.right)
-
-        return res
-
-    def flatten(self, root: TreeNode) -> None:
+    def flatten(self, root: Optional[TreeNode]) -> None:
         """
         Do not return anything, modify root in-place instead.
         """
+        
+        def preorder(root):
+            res = []
+            
+            if root:
+                res.append(root.val)
+                res += preorder(root.left)
+                res += preorder(root.right)
+                
+            return res
+        
+        temp = preorder(root)
+        n = len(temp)
+        p = root
 
-        vals = self.getInorder(root)
-        print(vals)
-
-        head = root
-
-        i = 0
-        while i < len(vals):
-            if i < len(vals)-1:
-                head.val = vals[i]
-                head.left = None
-                head.right = TreeNode(i)
-                head = head.right
+        for i in range(n):
+            if i == 0:
+                p.val = temp[i]
             else:
-                head.val = vals[i]
-            i += 1
+                p.right = TreeNode(temp[i])
+                p.left = None
+                p = p.right

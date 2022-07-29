@@ -1,43 +1,42 @@
 package main
 
-// Space : O(len(word))
-// Time  : O(n * len(word))
+/*
+Space : O(len(word))
+Time  : O(n * len(word))
+*/
 
 func findAndReplacePattern(words []string, pattern string) []string {
 	var ans []string
-	pn := len(pattern)
+	n := len(words)
 
-	for _, word := range words {
-		if len(word) != pn {
-			continue
-		}
+	for i := 0; i < n; i++ {
+		word := words[i]
+		mem_w := make(map[byte]byte)
+		mem_p := make(map[byte]byte)
+		safe := true
 
-		mem1, mem2 := make(map[byte]byte), make(map[byte]byte)
-		defect := false
+		for j := 0; j < len(word); j++ {
+			w := word[j]
+			p := pattern[j]
 
-		for i := 0; i < pn; i++ {
-			if _, ok := mem1[word[i]]; !ok {
-				mem1[word[i]] = pattern[i]
-			} else if mem1[word[i]] != pattern[i] {
-				defect = true
+			_, okw := mem_w[w]
+			_, okp := mem_p[p]
+
+			if !okw && !okp {
+				mem_w[w] = p
+				mem_p[p] = w
+			} else if okw && okp && mem_w[w] == p && mem_p[p] == w {
+				continue
+			} else {
+				safe = false
 				break
 			}
-
-			if _, ok := mem2[pattern[i]]; !ok {
-				mem2[pattern[i]] = word[i]
-			} else if mem2[pattern[i]] != word[i] {
-				defect = true
-				break
-			}
 		}
 
-		if defect == true {
+		if !safe {
 			continue
 		}
-
-		if len(mem1) == len(mem2) {
-			ans = append(ans, word)
-		}
+		ans = append(ans, word)
 
 	}
 

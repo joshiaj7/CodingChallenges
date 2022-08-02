@@ -1,7 +1,9 @@
 from bisect import bisect_right
 
-# Space : O(1)
-# Time  : O(n log(A))
+"""
+Space : O(1)
+Time  : O(n log(A))
+"""
 
 
 class Solution:
@@ -10,11 +12,12 @@ class Solution:
         high, low = matrix[-1][-1], matrix[0][0]
 
         while low < high:
-            cnt = 0
+            count = 0
             mid = low + (high-low) // 2
             for i in range(row):
-                cnt += bisect_right(matrix[i], mid)
-            if cnt < k:
+                count += bisect_right(matrix[i], mid)
+
+            if count < k:
                 low = mid+1
             else:
                 high = mid

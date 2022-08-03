@@ -1,7 +1,9 @@
 from bisect import bisect_right
 
-# Space : O(n)
-# Time  : O(log n)
+"""
+Space : O(n)
+Time  : O(log n)
+"""
 
 
 class MyCalendar:

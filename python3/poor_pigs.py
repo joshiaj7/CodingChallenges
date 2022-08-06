@@ -1,15 +1,15 @@
 """
 Space   : O(1)
-Time    : O(1)
+Time    : O(log N)
 """
 
 
 class Solution:
     def poorPigs(self, buckets: int, minutesToDie: int, minutesToTest: int) -> int:
-        x = (minutesToTest // minutesToDie) + 1
+        t = (minutesToTest // minutesToDie) + 1
 
-        p = 0
-        while x**p < buckets:
-            p += 1
+        x = 0
+        while t**x < buckets:
+            x += 1
 
-        return p
+        return x

@@ -1,7 +1,9 @@
 package main
 
-// Space	: O(1)
-// Time		: O(n)
+/*
+Space	: O(1)
+Time	: O(n)
+*/
 
 func romanToInt(s string) int {
 	rmap := map[byte]int{
@@ -14,8 +16,9 @@ func romanToInt(s string) int {
 		'M': 1000,
 	}
 	ans := 0
+	n := len(s)
 
-	for i := 0; i < len(s)-1; i++ {
+	for i := 0; i < n-1; i++ {
 		if rmap[s[i]] >= rmap[s[i+1]] {
 			ans += rmap[s[i]]
 		} else {
@@ -23,6 +26,6 @@ func romanToInt(s string) int {
 		}
 	}
 
-	ans += rmap[s[len(s)-1]]
+	ans += rmap[s[n-1]]
 	return ans
 }

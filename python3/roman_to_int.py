@@ -1,5 +1,7 @@
-# Space : O(1)
-# Time  : O(n)
+"""
+Space : O(7)
+Time  : O(n)
+"""
 
 
 class Solution:
@@ -13,11 +15,10 @@ class Solution:
             "D": 500,
             "M": 1000,
         }
-        leng = len(s)
-
+        n = len(s)
         ans = 0
 
-        for idx in range(leng-1):
+        for idx in range(n-1):
             if romanmap[s[idx]] >= romanmap[s[idx+1]]:
                 ans += romanmap[s[idx]]
             else:

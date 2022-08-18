@@ -2,12 +2,13 @@ package main
 
 import "sort"
 
-// Space : O(n)
-// Time  : O(n log n)
+/*
+Space : O(n)
+Time  : O(n log n)
+*/
 
 func minSetSize(arr []int) int {
-	n, ans := len(arr), 0
-	h := n / 2
+	n, target := len(arr), len(arr)/2
 	d := make(map[int]int)
 
 	for _, x := range arr {
@@ -18,23 +19,18 @@ func minSetSize(arr []int) int {
 		}
 	}
 
-	freq := []int{}
-	for _, val := range d {
-		freq = append(freq, val)
+	var temp []int
+	for _, v := range d {
+		temp = append(temp, v)
 	}
 
-	sort.Slice(freq, func(i, j int) bool {
-		return freq[i] > freq[j]
-	})
+	i, count := 0, 0
+	sort.Sort(sort.Reverse(sort.IntSlice(temp)))
 
-	for _, f := range freq {
-		if n > h {
-			n -= f
-			ans++
-		} else {
-			break
-		}
+	for i < n && count < target {
+		count += temp[i]
+		i++
 	}
 
-	return ans
+	return i
 }

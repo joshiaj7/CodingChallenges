@@ -1,7 +1,9 @@
 package main
 
-// Space   : O(n)
-// Time    : O(n)
+/*
+Space   : O(n)
+Time    : O(nm)
+*/
 
 func uniqueMorseRepresentations(words []string) int {
 	truth := []string{".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."}

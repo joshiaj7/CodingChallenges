@@ -1,32 +1,27 @@
-# Space : O(n)
-# Time	: O(log n)
+from collections import Counter
+
+"""
+Space   : O(len(n))
+Time    : O(log n)
+"""
 
 
 class Solution:
-    def reorderedPowerOf2(self, N: int) -> bool:
-        power = 0
-        leng = len(str(N))
-        n_map = {}
+    def reorderedPowerOf2(self, n: int) -> bool:
+        sn = str(n)
+        n_len = len(sn)
+        cn = Counter(sn)
         
-        for l in str(N):
-            if l not in n_map:
-                n_map[l] = 1
-            else:
-                n_map[l] += 1
-        
-        cmp = 1
-        while len(str(cmp)) <= leng:
-            if len(str(cmp)) == leng:
-                cmp_map = {}
-                for m in str(cmp):
-                    if m not in cmp_map:
-                        cmp_map[m] = 1
-                    else:
-                        cmp_map[m] += 1
-                if cmp_map == n_map:
+        count = 1
+        while True:
+            s_count = str(count)
+            if len(s_count) > n_len:
+                break
+            if len(s_count) == n_len:
+                cc = Counter(s_count)
+                if len(cc - cn) == 0:
                     return True
-            power += 1
-            cmp = 2 ** power
-        
+                
+            count <<= 1
         
         return False

@@ -1,27 +1,25 @@
+from collections import defaultdict
+
 """
 Space   : O(nm)
-Time    : O(nm)
+Time    : O(nm log n)
 """
 
 
 class Solution:
     def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
-        row = len(mat)
-        col = len(mat[0])
-        d = {}
+        m, n = len(mat), len(mat[0])
+        d = defaultdict(list)
 
-        for y in range(row):
-            for x in range(col):
-                if y-x not in d:
-                    d[y-x] = [mat[y][x]]
-                else:
-                    d[y-x].append(mat[y][x])
+        for i in range(m):
+            for j in range(n):
+                d[i-j].append(mat[i][j])
 
-        for k in d.keys():
-            d[k] = sorted(d[k])
+        for k, _ in d.items():
+            d[k].sort()
 
-        for y in range(row):
-            for x in range(col):
-                mat[y][x] = d[y-x].pop(0)
+        for i in range(m):
+            for j in range(n):
+                mat[i][j] = d[i-j].pop(0)
 
         return mat

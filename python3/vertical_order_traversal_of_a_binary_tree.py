@@ -16,15 +16,12 @@ class Solution:
 
         while stack:
             stemp = []
-            dtemp = {}
+            dtemp = defaultdict(list)
             for node, pos in stack:
                 minv = min(minv, pos)
                 maxv = max(maxv, pos)
 
-                if pos not in dtemp:
-                    dtemp[pos] = [node.val]
-                else:
-                    dtemp[pos].append(node.val)
+                dtemp[pos].append(node.val)
 
                 if node.left:
                     stemp.append((node.left, pos - 1))

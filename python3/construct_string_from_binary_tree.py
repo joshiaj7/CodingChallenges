@@ -6,15 +6,23 @@ from .model import TreeNode
 
 class Solution:
     def tree2str(self, root: TreeNode) -> str:
-        s = ""
+        if not root:
+            return ""
 
-        if root:
-            s += str(root.val)
-            if root.left:
-                s += "(" + self.tree2str(root.left) + ")"
-            if not root.left and root.right:
-                s += "()"
-            if root.right:
-                s += "(" + self.tree2str(root.right) + ")"
+        l, r = "", ""
+        left = self.tree2str(root.left)
+        if left:
+            l = "({})".format(left)
 
-        return s
+        right = self.tree2str(root.right)
+        if right:
+            r = "({})".format(right)
+
+        if not l and r:
+            l = "()"
+
+        return str(root.val) + l + r
+
+
+
+            

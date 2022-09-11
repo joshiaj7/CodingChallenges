@@ -6,23 +6,19 @@ from heapq import heappush, heappop
 
 class Solution:
     def maxPerformance(self, n: int, speed: List[int], efficiency: List[int], k: int) -> int:
-        mem = []
-        for i in range(n):
-            mem.append((efficiency[i], speed[i]))
+        mem = [(i, j) for i, j in zip(efficiency, speed)]
+        mem.sort(key=lambda x: -x[0])
 
-        mem.sort(key=lambda x: x[0], reverse=True)
-
-        speed_heap = []
-        speedTotal = 0
+        eng = []
+        total_speed = 0
         ans = 0
-        for i in range(n):
-            heappush(speed_heap, mem[i][1])
-            if len(speed_heap) <= k:
-                speedTotal += mem[i][1]
-            else:
-                speedTotal += mem[i][1] - heappop(speed_heap)
-            eff = mem[i][0]
+        for eff, spd in mem:
+            heappush(eng, spd)
+            total_speed += spd
 
-            ans = max(ans, (eff * speedTotal))
+            if len(eng) > k:
+                total_speed -= heappop(eng)
 
-        return ans % (10**9 + 7)
+            ans = max(ans, total_speed * eff)
+
+        return ans % 1000000007

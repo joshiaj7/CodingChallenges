@@ -1,42 +1,20 @@
 from .model import TreeNode
 
 """
+BFS Solution
 Space   : O(n)
-Time    : O(n)
+Time    : O(K + H), K = 9, H = Height
 """
 
+
 class Solution:
-    def pseudoPalindromicPaths(self, root: TreeNode) -> int:
+    def pseudoPalindromicPaths(self, root: TreeNode, count=0) -> int:
         if not root:
             return 0
-
-        ans = 0
-        pals = []
-        stack = [(root, [])]
-
-        while stack:
-            node, mem = stack.pop()
-            if not node.left and not node.right:
-                pals.append(mem + [node.val])
-            if node.left:
-                stack.append((node.left, mem + [node.val]))
-            if node.right:
-                stack.append((node.right, mem + [node.val]))
-
-        for item in pals:
-            d = {}
-            odds = 0
-            for i in item:
-                if i not in d:
-                    d[i] = 1
-                    odds += 1
-                else:
-                    d[i] += 1
-                    if d[i] % 2 == 0:
-                        odds -= 1
-                    else:
-                        odds += 1
-            if odds <= 1:
-                ans += 1
-
-        return ans
+        count ^= 1 << (root.val - 1)
+        res = self.pseudoPalindromicPaths(
+            root.left, count) + self.pseudoPalindromicPaths(root.right, count)
+        if root.left == root.right:
+            if count & (count - 1) == 0:
+                res += 1
+        return res

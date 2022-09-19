@@ -1,26 +1,30 @@
 from collections import defaultdict
 
-# Space : O(n)
-# Time  : O(n)
-# n = number of files given
+"""
+Space   : O(nm)
+Time    : O(nm)
+n = len(paths)
+m = len(paths[i])
+"""
+
 
 class Solution:
     def findDuplicate(self, paths: List[str]) -> List[List[str]]:
         ans = []
-        mem = defaultdict(list)
-        
-        for directory in paths:
-            directory = directory.split(" ")
-            path = directory[0]
-            files = directory[1:]
-            for file in files:
-                file = file.split("(")
-                file_name = file[0]
-                file_content = file[1][:len(file[1])-1]
-                mem[file_content].append(path + '/' + file_name)
-            
-        for val in mem.values():
-            if len(val) > 1:
-                ans.append(val)
-        
+        file_map = defaultdict(list)
+
+        for p in paths:
+            p = p.split(' ')
+            directory = p[0]
+            files = p[1:]
+            for f in files:
+                f = f.split('(')
+                filename = f[0]
+                content = f[-1][:-1]
+                file_map[content].append(directory + '/' + filename)
+
+        for _, v in file_map.items():
+            if len(v) > 1:
+                ans.append(v)
+
         return ans

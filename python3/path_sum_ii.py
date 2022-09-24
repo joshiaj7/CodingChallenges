@@ -5,26 +5,28 @@ Space   : O(n)
 Time    : O(n)
 """
 
+
 class Solution:
-    def pathSum(self, root: TreeNode, s: int) -> List[List[int]]:
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+
         if not root:
             return []
 
-        sums = []
-        stack = [(root, [])]
+        ans = []
+        stack = [[root, [], 0]]
 
         while stack:
-            node, mem = stack.pop()
-            if not node.left and not node.right:
-                sums.append(mem + [node.val])
-            if node.left:
-                stack.append((node.left, mem + [node.val]))
-            if node.right:
-                stack.append((node.right, mem + [node.val]))
-
-        ans = []
-        for item in sums:
-            if sum(item) == s:
-                ans.append(item)
+            temp = []
+            for node, path, total in stack:
+                if not node.left and not node.right:
+                    if total + node.val == targetSum:
+                        ans.append(path + [node.val])
+                if node.left:
+                    temp.append(
+                        [node.left, path + [node.val], total + node.val])
+                if node.right:
+                    temp.append(
+                        [node.right, path + [node.val], total + node.val])
+            stack = temp
 
         return ans

@@ -4,24 +4,22 @@ from .model import ListNode
 Space   : O(1)
 Time    : O(n)
 """
+
+
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        length = 0
-        curr = head
+        fast, slow = head, head
 
-        while curr:
-            length += 1
-            curr = curr.next
-            
-        if n == length:
+        for _ in range(n):
+            fast = fast.next
+
+        if not fast:
             return head.next
 
-        curr = head
-        stop = length - n
-        for i in range(stop - 1):
-            curr = curr.next
-        if not curr.next.next:
-            curr.next = None
-        else:
-            curr.next = curr.next.next
+        while fast.next:
+            fast = fast.next
+            slow = slow.next
+
+        slow.next = slow.next.next
+
         return head

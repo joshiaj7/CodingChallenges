@@ -1,4 +1,4 @@
-import bisect
+from  bisect import bisect_left
 
 # Space : O(1)
 # Time  : O(logn + k)
@@ -9,7 +9,7 @@ class Solution:
         if k == len(arr):
             return arr
 
-        left = bisect.bisect_left(arr, x)-1
+        left = bisect_left(arr, x)-1
         right = left + 1
 
         while right-left-1 < k:

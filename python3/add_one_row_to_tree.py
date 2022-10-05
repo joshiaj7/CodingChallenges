@@ -7,39 +7,31 @@ Time    : O(n)
 
 
 class Solution:
-    def addOneRow(self, root: TreeNode, v: int, d: int) -> TreeNode:
-        if d == 1:
-            ans = TreeNode(v)
-            ans.left = root
-            return ans
+    def addOneRow(self, root: Optional[TreeNode], val: int, depth: int) -> Optional[TreeNode]:
+        if depth == 1:
+            return TreeNode(val, root)
 
-        level = 1
         stack = [root]
 
+        level = 2
         while stack:
             temp = []
-            if level + 1 == d:
-                for node in stack:
-                    if node.left:
-                        l = node.left
-                        node.left = TreeNode(v)
-                        node.left.left = l
-                    else:
-                        node.left = TreeNode(v)
-                    if node.right:
-                        r = node.right
-                        node.right = TreeNode(v)
-                        node.right.right = r
-                    else:
-                        node.right = TreeNode(v)
-                break
-
             for node in stack:
+                if level == depth:
+                    left = node.left
+                    right = node.right
+                    node.left = TreeNode(val)
+                    node.left.left = left
+                    node.right = TreeNode(val)
+                    node.right.right = right
+
                 if node.left:
                     temp.append(node.left)
                 if node.right:
                     temp.append(node.right)
 
+            if level == depth:
+                break
             stack = temp
             level += 1
 

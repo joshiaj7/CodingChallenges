@@ -1,13 +1,16 @@
 from .model import TreeNode
 
-# Space : O(n)
-# Time  : O(n)
+"""
+Space: O(n)
+Time: O(n)
+"""
 
 
 class Solution:
     def findTarget(self, root: TreeNode, k: int) -> bool:
         if not root:
             return False
+
         s = set()
         q = [root]
 

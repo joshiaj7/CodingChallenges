@@ -35,6 +35,6 @@ type NaryNode struct {
 }
 
 type Node struct {
-	Val int
+	Val      int
 	Children []*Node
 }

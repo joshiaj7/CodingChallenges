@@ -1,6 +1,6 @@
 """
-Space   : O(n)
-Time    : O(n)
+Space   : O(1)
+Time    : O(mn)
 """
 
 

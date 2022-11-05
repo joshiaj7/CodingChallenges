@@ -48,6 +48,30 @@ class Trie:
                 return word[:i+1]
         return word
 
+    def starts(self, prefix):
+        t = self.root
+        for w in prefix:
+            if w not in t:
+                return False
+            t = t[w]
+        return True
+
+    def remove(self, word):
+        t = self.root
+        nodes = []
+        for w in word:
+            if w not in t:
+                return False
+            t = t[w]
+            nodes.append((t, w))
+
+        if '#' in t:
+            p = '#'
+            for n, w in nodes[::-1]:
+                if len(n[p]) == 0 or p == '#':
+                    del n[p]
+                p = w
+
 
 class NaryNode:
     def __init__(self, val=None, children=None):

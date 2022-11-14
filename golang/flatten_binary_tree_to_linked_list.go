@@ -3,9 +3,9 @@ package main
 // Space : O(n)
 // Time  : O(n)
 
-import {
+import (
 	"golang/model"
-}
+)
 
 func getTreePreorder(root *model.TreeNode) []int {
 	res := []int{}

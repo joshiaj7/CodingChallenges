@@ -1,4 +1,4 @@
-import collections
+from collections import deque
 
 
 class Solution:
@@ -17,7 +17,7 @@ class Solution:
 
         for i in range(n):
             # check if expired
-            if dq and dq[0][1] <= i-k:
+            if dq and dq[0][1] <= i - k:
                 dq.pop(0)
 
             # utmost left in dq is the max val
@@ -36,17 +36,17 @@ class Solution:
     def maxSlidingWindowBest(self, nums: List[int], k: int) -> List[int]:
         """
         Best solution
-        Space   : O(n)
-        Time    : O(n**2)
+        Space   : O(k)
+        Time    : O(n)
         """
 
-        window = collections.deque()
+        window = deque()
 
         res = []
 
         for i in range(len(nums)):
-            print(window, i-k)
-            if window and i-k >= window[0][1]:
+            print(window, i - k)
+            if window and i - k >= window[0][1]:
                 window.popleft()
 
             while window and nums[i] > window[-1][0]:
@@ -57,3 +57,33 @@ class Solution:
                 res.append(window[0][0])
 
         return res
+
+
+# LINE JAPAN
+def solution(window_size, numbers):
+    """
+    Solution description.
+
+    Time Complexity: O(n)
+    Space Complexity: O(window_size)
+    """
+
+    d = deque()
+    ans = []
+    n = len(numbers)
+
+    if window_size >= n:
+        return [max(numbers)]
+
+    for i, v in enumerate(numbers):
+        while d and d[0] <= i - window_size:
+            d.popleft()
+        while d and v >= numbers[d[-1]]:
+            d.pop()
+
+        d.append(i)
+
+        if i >= window_size - 1:
+            ans.append(numbers[d[0]])
+
+    return ans

@@ -1,3 +1,8 @@
+"""
+Space   : O(n)
+Time    : O(n log n)
+"""
+
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
         ans = [[], []]

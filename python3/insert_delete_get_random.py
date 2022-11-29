@@ -1,18 +1,21 @@
-# leetcode
-
 import random
+
+"""
+Space   : O(n)
+Time    : O(1)
+"""
 
 class RandomizedSet:
 
     def __init__(self):
         self.data = {}
+        
 
     def insert(self, val: int) -> bool:
-        if val in self.data:
-            return False
-        self.data[val] = 1
-        return True
-        
+        if val not in self.data:
+            self.data[val] = 1
+            return True
+        return False
 
     def remove(self, val: int) -> bool:
         if val not in self.data:
@@ -20,10 +23,8 @@ class RandomizedSet:
         del self.data[val]
         return True
         
-
     def getRandom(self) -> int:
-        val = random.choice(list(self.data.keys()))
-        return val
+        return random.choice(list(self.data.keys()))
         
         
 

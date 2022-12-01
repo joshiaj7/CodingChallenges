@@ -1,18 +1,29 @@
-# Space : O(1)
-# Time	: O(n/2)
+"""
+Space   : O(1)
+Time	: O(n)
+"""
 
 
 class Solution:
     def halvesAreAlike(self, s: str) -> bool:
+        vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
         n = len(s)
-        v1, v2 = 0, 0
+
+        start = n // 2
+        end = n // 2
+        if n % 2 == 0:
+            start -= 1
+
+        h1, h2 = 0, 0
+        while start >= 0:
+            if s[start] in vowels:
+                h1 += 1
+            
+            if s[end] in vowels:
+                h2 += 1
+
+            start -= 1
+            end += 1
         
-        for i in range(n//2):
-            if s[i].lower() in ['a', 'e', 'i', 'o', 'u']:
-                v1 += 1
-            if s[i+(n//2)].lower() in ['a', 'e', 'i', 'o', 'u']:
-                v2 += 1
-        
-        return v1 == v2
-        
+        return h1 == h2
         

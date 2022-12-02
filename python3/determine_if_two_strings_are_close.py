@@ -1,5 +1,9 @@
 from collections import Counter
 
+"""
+Space   : O(n)
+Time    : O(n)
+"""
 
 class Solution:
     def closeStringsCounter(self, word1: str, word2: str) -> bool:

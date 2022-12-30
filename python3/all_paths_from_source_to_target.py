@@ -1,8 +1,8 @@
 from collections import defaultdict
 
 """
-Space   : O(n**2)
-Time    : O(n!)
+Space   : O(2^n)
+Time    : O(2^n)
 """
 
 

@@ -1,6 +1,8 @@
 """
 Space   : O(n)
 Time    : O(n)
+
+Union Find
 """
 
 

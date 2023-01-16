@@ -1,43 +1,47 @@
+from bisect import bisect_right
+
+"""
+Space   : O(n)
+Time    : O(n)
+"""
+
 class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
         ans = []
+        overlap = False
+        ns, ne = newInterval
+        
+        cs, ce = -1, -1
+        for s, e in intervals:
+            if s <= ns <= e or e <= ne <= e or ns <= s <= ne or ns <= e <= ne:
+                overlap = True
+                if cs == -1:
+                    cs = min(s, ns)
+                    ce = max(e, ne)
+                    continue
 
-        if len(intervals) == 0:
-            return [newInterval]
+                cs = min(s, ns, cs)
+                ce = max(e, ne, ce)
 
-        s, e = newInterval
+        if not overlap:
+            i = bisect_right(intervals, newInterval)
+            intervals.insert(i, newInterval)
+            return intervals
 
-        start, end = -1, -1
-        for a, b in intervals:
-            if b < s or a > e:
+        skip = False
+        for s, e in intervals:
+            if s <= ns <= e or e <= ne <= e or ns <= s <= ne or ns <= e <= ne: 
+                skip = True
                 continue
-            if start == -1:
-                start = min(s, a)
-            end = max(b, e)
+            elif skip:
+                skip = False
+                ans.append([cs, ce])
+            ans.append([s, e])
 
-        if start == -1:
-            start = s
-        if end == -1:
-            end = e
-
-        inputted = False
-        for a, b in intervals:
-            if b < start or a > end:
-                ans.append([a, b])
-            elif (a >= start and a <= end) or (b >= start and b <= end):
-                if not inputted:
-                    ans.append([start, end])
-                    inputted = True
-
-        if not inputted:
-            if end < ans[0][0]:
-                ans.insert(0, [start, end])
-            elif ans[-1][1] < start:
-                ans.append([start, end])
-            else:
-                for idx in range(len(intervals)):
-                    if end < ans[idx][0] and end > ans[idx-1][1]:
-                        ans.insert(idx, [start, end])
-                        break
+        if skip:
+            ans.append([cs, ce])
 
         return ans
+
+
+

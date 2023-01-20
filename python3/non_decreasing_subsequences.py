@@ -1,31 +1,26 @@
 """
 Space   : O(2^n)
 Time    : O(2^n)
+
+backtracking
 """
 
 class Solution:
     def findSubsequences(self, nums: List[int]) -> List[List[int]]:
-        ans = list()
-        visited = set()
-        n = len(nums)
+        ans = []
+        path = []
 
-        def dfs(index, leng, path):
-            if index == leng:
-                if len(path) > 1:
-                    k = ",".join(map(str, path))
-                    if k not in visited:
-                        ans.append(path)
-                        visited.add(k)
-                        return 
-            elif index < leng:
-                # if path empty
-                if not path:
-                    dfs(index + 1, leng, path + [nums[index]])
-                # if increasing
-                elif path and path[-1] <= nums[index]:
-                    dfs(index + 1, leng, path + [nums[index]])
-                dfs(index + 1, leng, path)
-            
+        def backtrack(index):
+            if len(path) > 1:
+                ans.append(path[:])
+            for i in range(index, len(nums)):
+                if path and path[-1] > nums[i]:
+                    continue
+                if i > index and nums[i] in nums[index:i]:
+                    continue
+                path.append(nums[i])
+                backtrack(i+1)
+                path.pop()
 
-        dfs(0, n, [])
+        backtrack(0)
         return ans

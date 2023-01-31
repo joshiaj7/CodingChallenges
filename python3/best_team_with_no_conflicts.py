@@ -1,6 +1,6 @@
 """
 Space   : O(max(age))
-Time    : O(n log n)
+Time    : O(n^2)
 """
 
 class Solution:

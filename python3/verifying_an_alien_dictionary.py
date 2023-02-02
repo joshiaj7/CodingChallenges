@@ -1,5 +1,5 @@
 # Space : O(1)
-# Time  : O(n log n)
+# Time  : O((n log n) ^ 2)
 
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:

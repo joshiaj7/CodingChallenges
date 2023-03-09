@@ -11,9 +11,8 @@ Time    : O(n)
 #         self.val = x
 #         self.next = None
 
-
 class Solution:
-    def detectCycle(self, head: ListNode) -> ListNode:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head:
             return None
 
@@ -26,21 +25,22 @@ class Solution:
             h2 = h2.next
             if h2:
                 h2 = h2.next
-            if not h2 or not h1:
+
+            if not h1 or not h2:
                 cyclical = False
                 break
 
-            if h1.val == h2.val:
-                if h1.next.val == h2.next.val:
-                    break
-
+            if h1.val == h2.val and h1.next and h2.next and h1.next.val == h2.next.val:
+                break
+                
+            
         if not cyclical:
             return None
 
         point = head
-        while True:
-            if point.val == h1.val:
-                if point.next.val == h1.next.val:
-                    return point
-            point = point.next
+        while point:
+            if point.val == h1.val and point.next and h1.next and point.next.val == h1.next.val:
+                return point
+
             h1 = h1.next
+            point = point.next

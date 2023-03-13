@@ -1,5 +1,8 @@
 package main
 
+// Space 	: O(nk)
+// Time 	: O(nk)
+
 import (
 	"golang/model"
 	"sort"

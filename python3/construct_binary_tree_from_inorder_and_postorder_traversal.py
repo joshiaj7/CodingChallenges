@@ -1,7 +1,7 @@
 from model import TreeNode
 
 """
-Space   : O(1)
+Space   : O(n)
 Time    : O(n)
 """
 

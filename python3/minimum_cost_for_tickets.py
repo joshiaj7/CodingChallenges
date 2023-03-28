@@ -12,11 +12,7 @@ class Solution:
 
         j = 0
         for i in range(n):
-            days1 = float('inf')
-            days7 = float('inf')
-            days30 = float('inf')
             if i == days[j]:
-
                 days1 = dp[i-1] + costs[0]
                 days7 = dp[max(i-7, 0)] + costs[1]
                 days30 = dp[max(i-30, 0)] + costs[2]

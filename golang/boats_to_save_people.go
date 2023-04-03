@@ -2,6 +2,9 @@ package main
 
 import "sort"
 
+// Space	: O(1)
+// Time		: O(n log n)
+
 func numRescueBoats(people []int, limit int) int {
 	ans := 0
 	sort.Ints(people)

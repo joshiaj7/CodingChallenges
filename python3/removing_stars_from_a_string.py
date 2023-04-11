@@ -1,4 +1,7 @@
-
+"""
+Space   : O(n)
+Time    : O(n)
+"""
 
 class Solution:
     def removeStars(self, s: str) -> str:

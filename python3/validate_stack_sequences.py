@@ -11,13 +11,14 @@ class Solution:
         i, j = 0, 0
 
         while i < n or stack:
-            if stack and stack[-1] == popped[j]:
+            while stack and stack[-1] == popped[j]:
                 stack.pop()
                 j += 1
-            elif i < n:
+            
+            if i < n:
                 stack.append(pushed[i])
                 i += 1
             else:
-                return False
+                break
 
-        return True
+        return len(stack) == 0

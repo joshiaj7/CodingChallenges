@@ -1,3 +1,8 @@
+"""
+Space   : O(1)
+Time    : O(n^2)
+"""
+
 class Solution:
     def diagonalSum(self, mat: List[List[int]]) -> int:
         ans = 0

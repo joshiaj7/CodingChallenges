@@ -1,6 +1,10 @@
 """
 Space   : O(nm)
 Time    : O(nm)
+
+Mehtod:
+DP
+Longest common subsequence
 """
 
 class Solution:

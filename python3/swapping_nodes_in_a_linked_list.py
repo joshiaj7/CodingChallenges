@@ -1,27 +1,30 @@
 from .model import ListNode
 
 """
-Space   : O(n)
+Space   : O(1)
 Time    : O(n)
 """
 
-
 class Solution:
-    def swapNodes(self, head: ListNode, k: int) -> ListNode:
+    def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         p = head
-        temp = []
+        n = 0
 
         while p:
-            temp.append(p.val)
             p = p.next
+            n += 1
 
-        temp[k-1], temp[~(k-1)] = temp[~(k-1)], temp[k-1]
+        s = k - 1
+        e = n - k
+        p1, p2 = head, head
 
-        p = head
-        i = 0
-        while p:
-            p.val = temp[i]
-            i += 1
-            p = p.next
+        while s > 0 or e > 0:
+            if s > 0:
+                p1 = p1.next
+                s -= 1
+            if e > 0:
+                p2 = p2.next 
+                e -= 1
 
+        p1.val, p2.val = p2.val, p1.val               
         return head

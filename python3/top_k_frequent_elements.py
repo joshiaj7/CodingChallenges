@@ -1,4 +1,9 @@
-# leetcode
+from typing import List
+
+"""
+Space   : O(n)
+Time    : O(n log n)
+"""
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:

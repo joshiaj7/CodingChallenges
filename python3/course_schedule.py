@@ -11,18 +11,16 @@ m = len(prerequisites)
 
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        dep = set()
         outdeg = defaultdict(int)
         prereq_graph = defaultdict(list)
     
         for u, v in prerequisites:
-            dep.add(u)
             prereq_graph[v].append(u)
             outdeg[u] += 1
 
         queue = []
         for i in range(numCourses):
-            if i not in dep:
+            if i not in outdeg:
                 queue.append(i)
 
         visited = set()

@@ -16,7 +16,7 @@ class Solution:
         dp, dp2 = [[0, 0]], [[0, 0]]
 
         # try to get maxValues with k events
-        for num in range(k):
+        for _ in range(k):
 
             for s, e, v in events:
                 # for each event, find the largest endDay in k-1 list before the event startDay

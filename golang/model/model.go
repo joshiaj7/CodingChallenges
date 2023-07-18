@@ -38,3 +38,19 @@ type Node struct {
 	Val      int
 	Children []*Node
 }
+
+type LRUNode struct {
+	Key  int
+	Val  int
+	Prev *LRUNode
+	Next *LRUNode
+}
+
+func NewLRUNode(key, val int) *LRUNode {
+	return &LRUNode{
+		Key:  key,
+		Val:  val,
+		Prev: nil,
+		Next: nil,
+	}
+}

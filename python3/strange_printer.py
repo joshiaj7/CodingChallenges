@@ -1,6 +1,6 @@
 """
 Space   : O(n ^ 2)
-Time    : O(n)
+Time    : O(n ^ 3)
 """
 
 class Solution:

@@ -1,5 +1,5 @@
 from collections import deque
-
+from typing import List
 
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
@@ -45,7 +45,6 @@ class Solution:
         res = []
 
         for i in range(len(nums)):
-            print(window, i - k)
             if window and i - k >= window[0][1]:
                 window.popleft()
 

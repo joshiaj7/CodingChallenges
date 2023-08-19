@@ -23,3 +23,25 @@ class Solution:
                     ans = max(ans, len(graph[u]) + len(graph[v]))
 
         return ans
+
+
+# codility SN
+
+def solution(A, B, N):
+    ans = 0
+    graph = defaultdict(set)
+
+    for u, v in zip(A, B):
+        graph[u].add(v)
+        graph[v].add(u)
+
+    visited = set()
+    for u in range(1, N):
+        for v in graph[u]:
+            if (u, v) in visited or (v, u) in visited:
+                continue
+                
+            visited.add((u, v))
+            ans = max(ans, len(graph[u]) + len(graph[v]) - 1)
+
+    return ans

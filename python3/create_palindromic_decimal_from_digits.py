@@ -34,7 +34,7 @@ def solution(S):
         left = s[:mid]
         right = s[mid:]
         
-        return left + (c * occur * 2) + right 
+        return left + (c * occur) + right 
 
     for i in range(N-1, -1, -1):
         if i in num_map and num_map[i] > 0:
@@ -49,7 +49,7 @@ def solution(S):
                 continue
 
             if len(ans) % 2 == 0:
-                ans = insert_even(ans, str(i), num_map[i] // 2)
+                ans = insert_even(ans, str(i), num_map[i])
             else:
                 ans = insert_odd(ans, str(i), num_map[i] // 2)
 

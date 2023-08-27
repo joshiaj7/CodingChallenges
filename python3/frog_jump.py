@@ -1,3 +1,10 @@
+from typing import List
+
+"""
+Space   : O(3^n)
+Time    : O(3^n)
+"""
+
 class Solution:
     def canCross(self, stones: List[int]) -> bool:
         self.memo = set()

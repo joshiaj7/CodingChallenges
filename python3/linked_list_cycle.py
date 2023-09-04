@@ -1,4 +1,5 @@
-from .model import ListNode
+from typing import Optional
+from model import ListNode
 
 """
 Space   : O(1)
@@ -6,23 +7,24 @@ Time    : O(n)
 """
 
 class Solution:
-    def hasCycle(self, head: ListNode) -> bool:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
         if not head:
-            return None
+            return False
+        
+        slow, fast = head, head
 
-        h1 = head
-        h2 = head
+        while slow or fast:
+            slow = slow.next
+            fast = fast.next
 
-        while h1 or h2:
-            h1 = h1.next
-            h2 = h2.next
-            if h2:
-                h2 = h2.next
-            if not h2 or not h1:
+            if fast:
+                fast = fast.next
+
+            if not slow or not fast:
                 return False
 
-            if h1.val == h2.val:
-                if h1.next.val == h2.next.val:
+            if slow == fast:
+                if slow.next == fast.next:
                     break
 
         return True

@@ -1,29 +1,32 @@
-from .model import ListNode
+from model import ListNode
+from typing import Optional
 
 # Space : O(n)
 # Time  : O(n)
 
 
 class Solution:
-    def reverseBetween(self, head: ListNode, left: int, right: int) -> ListNode:
+    def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
         if left == right:
             return head
 
-        temp = []
-        p = head
-        while p:
-            temp.append(p.val)
-            p = p.next
+        ans = ListNode(0)
+        ans.next = head
+        pre = ans
 
-        while left < right:
-            temp[left-1], temp[right-1] = temp[right-1], temp[left-1]
-            left += 1
-            right -= 1
+        for i in range(left - 1):
+            pre = pre.next
+        
+        # reverse the [left, right] nodes
+        reverse = None
+        cur = pre.next
+        for i in range(right - left + 1):
+            next = cur.next
+            cur.next = reverse
+            reverse = cur
+            cur = next
 
-        new_head = ListNode(temp[0])
-        p = new_head
-        for i in range(1, len(temp)):
-            p.next = ListNode(temp[i])
-            p = p.next
+        pre.next.next = cur
+        pre.next = reverse
 
-        return new_head
+        return ans.next

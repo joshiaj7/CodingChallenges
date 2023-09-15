@@ -15,3 +15,11 @@ func Min(a int, b int) int {
 	}
 	return a
 }
+
+// Abs returns positive int from input
+func Abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}

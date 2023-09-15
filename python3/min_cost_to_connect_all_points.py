@@ -1,8 +1,12 @@
-# Space : O(n)
-# Time  : O(n^2)
+from typing import List
 
-# Method:
-# Minimum Spanning Tree
+"""
+Space : O(n)
+Time  : O(n^2)
+
+Method:
+Minimum Spanning Tree
+"""
 
 class Solution:
     def minCostConnectPoints(self, points: List[List[int]]) -> int:

@@ -1,4 +1,6 @@
-import heapq
+from heapq import heappop, heappush
+from typing import List
+
 
 """
 Space   : O(mn)
@@ -11,21 +13,25 @@ Djikstra algorithm to find shortest path
 
 class Solution:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
-        di = (0, 1, 0, -1)
-        dj = (1, 0, -1, 0)
-        m, n = len(heights), len(heights[0])
-        visited = [[False] * n for _ in range(m)]
-        h = [(0, 0, 0)]
-        while h:
-            effort, i, j = heapq.heappop(h)
-            if visited[i][j]:
-                continue
-            visited[i][j] = True
-            if i + 1 == m and j + 1 == n:
-                return effort  # have reached the (m-1, n-1) cell
-            for k in range(4):
-                ii, jj = i + di[k], j + dj[k]
-                if 0 <= ii < m and 0 <= jj < n and not visited[ii][jj]:
-                    neffort = max(effort, abs(heights[i][j] - heights[ii][jj]))
-                    heapq.heappush(h, (neffort, ii, jj))
-        return  # cell (m-1, n-1) not reachable, should never happen
+      m, n = len(heights), len(heights[0])
+      coord = [(0, 1), (1, 0), (0, -1),  (-1, 0)]
+      heap = [(0, 0, 0)]
+      visited = set()
+
+      while heap:
+        effort, i, j = heappop(heap)
+        if (i, j) in visited:
+          continue
+
+        visited.add((i, j))
+        if i + 1 == m and j + 1 == n:
+          return effort
+
+        for di, dj in coord:
+          ni = i + di
+          nj = j + dj
+          if 0 <= ni < m and 0 <= nj < n and (ni, nj) not in visited:
+            neffort = max(effort, abs(heights[i][j] - heights[ni][nj]))
+            heappush(heap, (neffort, ni, nj))
+
+      return

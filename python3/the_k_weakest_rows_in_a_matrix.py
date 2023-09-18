@@ -1,31 +1,28 @@
+from typing import List
+
 """
-Space   : O(m * n)
-Time    : O(m * n)
+Space   : O(m)
+Time    : O(mn + m log m)
 """
 
 
 class Solution:
     def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
-        ans = [0] * k
-        row = len(mat)
-        col = len(mat[0])
-        d = {}
+        m, n = len(mat), len(mat[0])
+        pairs = []
 
-        idx = 0
-        for x in range(col):
-            for y in range(row):
-                if y not in d and mat[y][x] == 0:
-                    d[y] = idx
-                    idx += 1
+        for i in range(m):
+            sol = 0
+            j = 0
+            while j < n:
+                if mat[i][j] == 1:
+                    sol += 1
+                else:
+                    break
+                j += 1
 
-        if len(d) < k:
-            for i in range(row):
-                if i not in d:
-                    d[i] = idx
-                    idx += 1
-
-        for k, v in d.items():
-            if v < len(ans):
-                ans[v] = k
-
-        return ans
+            pairs.append((sol, i))
+            
+        pairs.sort(key=lambda x: (x[0], x[1]))
+        
+        return [x[1] for x in pairs[:k]]

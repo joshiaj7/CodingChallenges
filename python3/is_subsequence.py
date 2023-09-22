@@ -1,26 +1,23 @@
-# leetcode
+"""
+Space   : O(1)
+Time    : O(n)
+"""
 
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        if len(s) == 0:
+        m, n = len(s), len(t)
+
+        i = 0
+        for j in range(n):
+            if i == m:
+                return True
+
+            if s[i] == t[j]:
+                i += 1
+
+        if i == m:
             return True
-        if len(t) == 0:
-            return False
         
-        mem = ''
-        idx = 0
-        
-        for l in t:
-            if l == s[idx]:
-                idx += 1
-                mem += l
-            if idx == len(s):
-                break
-        
-        if mem == s:
-            return True
-        else:
-            return False
-        
+        return False
         
         

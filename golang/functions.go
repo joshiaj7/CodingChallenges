@@ -1,7 +1,7 @@
 package main
 
-// Max compare 2 int and return the highest value
-func Max(a int, b int) int {
+// Max compare 2 comparables and return the highest value
+func Max[T int | float64](a, b T) T {
 	if a > b {
 		return a
 	}

@@ -17,12 +17,13 @@ class Solution:
 
         for j in range(n-1, -1, -1):
             K %= size
-            if K == 0 and not S[j].isdigit():
-                return S[j]
 
-            if S[j].isdigit():
-                size //= int(S[j])
-            else:
+            if K == 0 and not S[j].isdigit():
+                if K == 0:
+                    return S[j]
+                
                 size -= 1
+            else:
+                size //= int(S[j])
 
         return S[K]

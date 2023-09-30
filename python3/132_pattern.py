@@ -1,3 +1,5 @@
+from typing import List
+
 """
 Space   : O(n)
 Time    : O(n)
@@ -19,9 +21,10 @@ class Solution:
         for i in range(n-1, -1, -1):
             if nums[i] < n2:
                 return True
-            else:
-                while stack and nums[i] > stack[-1]:
-                    n2 = stack.pop()
+
+            while stack and nums[i] > stack[-1]:
+                n2 = stack.pop()
+
             stack.append(nums[i])
 
         return False

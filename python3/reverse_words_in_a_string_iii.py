@@ -1,11 +1,9 @@
-# Space : O(n)
-# Time  : O(n)
+"""
+Space   : O(1)
+Time    : O(n)
+"""
 
 class Solution:
     def reverseWords(self, s: str) -> str:
-        l = s.split(" ")
-
-        for i in range(len(l)):
-            l[i] = l[i][::-1]
-
-        return " ".join(l)
+        return " ".join([w[::-1] for w in s.split(" ")])
+        

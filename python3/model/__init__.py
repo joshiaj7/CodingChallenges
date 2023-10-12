@@ -116,3 +116,15 @@ class GraphNode:
     def __init__(self, val = 0, neighbors = None):
         self.val = val
         self.neighbors = neighbors if neighbors is not None else []
+
+# Definition for a Mountain Array.
+
+class MountainArray:
+    def __init__(self):
+        self.arr = []
+
+    def get(self, index: int) -> int:
+       return self.arr[index]
+
+    def length(self) -> int:
+        return len(self.arr)

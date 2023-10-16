@@ -1,6 +1,8 @@
+from typing import List
+
 """
 Space   : O(nk)
-time    : O(nk)
+Time    : O(nk)
 """
 
 

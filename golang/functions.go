@@ -1,5 +1,7 @@
 package main
 
+import "sort"
+
 // Max compare 2 comparables and return the highest value
 func Max[T int | float64](a, b T) T {
 	if a > b {
@@ -22,4 +24,11 @@ func Abs(x int) int {
 		return -x
 	}
 	return x
+}
+
+// Abs returns positive int from input
+func BisectLeft(arr []int, target int) int {
+	return sort.Search(len(arr), func(i int) bool {
+		return arr[i] >= target
+	})
 }

@@ -1,15 +1,16 @@
 package main
 
+/*
+Space	: O(1)
+Time	: O(n)
+*/
+
 func climbStairs(n int) int {
-	dp := []int{1, 1, 2}
+	a, b := 0, 1
 
-	if n < 3 {
-		return dp[n]
+	for i := 0; i < n; i++ {
+		a, b = b, a+b
 	}
 
-	for i := 3; i <= n; i++ {
-		dp = append(dp, dp[i-1]+dp[i-2])
-	}
-
-	return dp[n]
+	return b
 }

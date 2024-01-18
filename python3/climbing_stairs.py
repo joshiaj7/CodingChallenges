@@ -1,22 +1,14 @@
 """
-Space   : O(n)
+Space   : O(1)
 Time    : O(n)
 """
 
 class Solution:
     def climbStairs(self, n: int) -> int:
-        dp = [0] * 3
-        dp[0] = 1
-        dp[1] = 1
-        dp[2] = 2
+        a, b = 0, 1
         
-        if n < 3:
-            return dp[n]
-        
-        dp = dp + ([0] * (n-2))
-        
-        for i in range(3, n+1):
-            dp[i] = dp[i-1] + dp[i-2]
-            
-        return dp[n]
+        for _ in range(n):
+            a, b = b, a + b
+
+        return b
         

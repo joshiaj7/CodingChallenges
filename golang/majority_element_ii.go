@@ -3,7 +3,7 @@ package main
 // Space : O(n)
 // Time  : O(n)
 
-func majorityElement(nums []int) []int {
+func majorityElementII(nums []int) []int {
 	hashmap := map[int]int{}
 	ans := []int{}
 	n := len(nums)

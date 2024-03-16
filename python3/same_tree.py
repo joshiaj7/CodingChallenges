@@ -1,4 +1,5 @@
 from .model import TreeNode
+from typing import List
 
 """
 Space   : O(n)

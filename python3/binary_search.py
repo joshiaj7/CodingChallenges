@@ -1,8 +1,9 @@
+from typing import List
+
 """
 Space   : O(1)
 Time    : O(log n)
 """
-
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:

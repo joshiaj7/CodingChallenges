@@ -20,7 +20,6 @@ class Solution:
 
         while minDay <= maxDay:
             mid = (minDay + maxDay) // 2
-            print(mid)
 
             count = 0
             bouquet = 0

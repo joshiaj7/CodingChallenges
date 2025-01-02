@@ -12,7 +12,6 @@ class Solution:
         for l in s:
             alphabets[ord(l) - 97] += 1
 
-        print(alphabets)
 
         i = 25
         for i in range(25, -1, -1):

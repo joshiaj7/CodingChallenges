@@ -1,3 +1,8 @@
+"""
+Space   : O(n)
+Time    : O(n)
+"""
+
 class Solution:
     def minMaxDifference(self, num: int) -> int:
         biggest = 0

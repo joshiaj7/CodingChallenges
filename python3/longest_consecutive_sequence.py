@@ -1,5 +1,8 @@
+from typing import List
+
 # Space : O(n)
 # Time  : O(n)
+# Interview: Superbank ID
 
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
